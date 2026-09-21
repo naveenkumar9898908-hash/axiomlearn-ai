@@ -334,30 +334,60 @@ make_3d_card(s5, 8.8, 1.8, 3.7, 5.0, "For Institutions\n(Retention & Grades)", [
     "💻 Zero Infrastructure Cost: Runs entirely on basic school laptops and Chromebooks."
 ], VIOLET_GLOW, "🏫")
 
-# SLIDE 6
+# SLIDE 6: THE CORE TAKEAWAY & FUTURE INNOVATIONS
 s6 = prs.slides.add_slide(blank_layout)
 draw_3d_background(s6)
-add_3d_header(s6, "Summary & Next Steps", "100% Ready Today & Our Expanding Vision", CYAN_GLOW)
+add_3d_header(s6, "Summary & Future Vision", "The Core Takeaway & Future Innovations", CYAN_GLOW)
 
-make_3d_card(s6, 0.8, 1.8, 3.7, 5.0, "100% Built & Live", [
-    "• Complete Web Application: Live on http://localhost:5173 with full math and CS curricula.",
-    "• Verified Quality: 5/5 engine tests pass, 0 TypeScript errors across 37 files.",
-    "• Live on GitHub: Committed and uploaded to official GitHub repository."
-], CYAN_GLOW, "✅")
+s6_card1_lines = [
+    "This is the main idea behind the whole project:",
+    "",
+    "👨‍🏫 Traditional Classroom Problem:",
+    "• A teacher with 30 students must teach everyone at roughly the same pace.",
+    "• But students are different:",
+    "  - Student A ➔ Understands quickly",
+    "  - Student B ➔ Needs more explanation",
+    "  - Student C ➔ Has a basic concept missing",
+    "  - Student D ➔ Needs extra practice",
+    "• One fixed teaching speed doesn't work perfectly for everyone.",
+    "",
+    "🧠 What AxiomLearn Tries to Do:",
+    "• AI gives personalized learning: 'Find out what YOU understand & need.'",
+    "",
+    "🔑 The Important Idea: Learning Gaps:",
+    "• Suppose a student cannot solve: 2x + 4 = 10.",
+    "• Why? Maybe they don't understand 10 − 4 = 6, or 6 ÷ 2 = 3.",
+    "• AI goes back and fixes that exact missing foundation.",
+    "",
+    "👉 In Simple Words: Fix the root of the problem, not just the wrong answer."
+]
+make_3d_card(s6, 0.8, 1.7, 5.7, 5.35, '💡 2. "The Core Takeaway" — Why AxiomLearn Matters', s6_card1_lines, EMERALD_GLOW)
 
-make_3d_card(s6, 4.8, 1.8, 3.7, 5.0, "The Core Takeaway", [
-    "• Uniform Pacing is Dead: Forcing 30 students to learn at one speed is unfair to everyone.",
-    "• Gaps are 100% Solvable: Every difficult concept is just simple building blocks.",
-    "• AI for Human Potential: Empowers teachers and unlocks every student's true genius."
-], EMERALD_GLOW, "💡")
+s6_card2_lines = [
+    "Expanding AxiomLearn beyond the current system:",
+    "",
+    "🗣️ A. AI Socratic Tutor:",
+    "• Students can talk to the AI out loud instead of only typing.",
+    "• Student: 'I don't understand why the answer is 12.'",
+    "• AI: 'What do you think the first step should be?'",
+    "• Asks questions to help students discover the answer themselves.",
+    "  👉 Meaning: An AI tutor that teaches through conversation.",
+    "",
+    "🏫 B. Connect with School Systems:",
+    "• School Classroom ➔ Student Info ➔ AxiomLearn ➔ Personalized Learning.",
+    "• Google Classroom integration makes adoption seamless.",
+    "  👉 Meaning: Works together with the tools schools already use.",
+    "",
+    "🔬 C. Unified STEM Learning:",
+    "• Connects 🔬 Science, 💻 Technology, ⚙️ Engineering, 📐 Mathematics.",
+    "• Example: Math ➔ Forces ➔ Physics ➔ Engineering.",
+    "  👉 Meaning: Helps students see how different subjects connect.",
+    "",
+    "🔮 Vision: A conversational, connected, multi-disciplinary AI companion."
+]
+make_3d_card(s6, 6.8, 1.7, 5.7, 5.35, '🟣 3. "Future Innovations" — What Could Come Next?', s6_card2_lines, VIOLET_GLOW)
 
-make_3d_card(s6, 8.8, 1.8, 3.7, 5.0, "Future Innovations", [
-    "• 🎙️ Talking AI Socratic Tutor: Spoken voice hints that guide students verbally.",
-    "• 📲 Google Classroom LTI Sync: 1-click school roster sync for seamless district adoption.",
-    "• 🔬 Unified STEM Trees: Cross-connecting Physics, Chemistry, and Engineering knowledge graphs."
-], VIOLET_GLOW, "🔮")
-
-# Save to dedicated master presentation
-out_file = r"c:\Users\navee\OneDrive\Pictures\NEW\347\AxiomLearn_AI_Master_Presentation.pptx"
+# Save to dedicated master presentation deck
+out_file = r"c:\Users\navee\OneDrive\Pictures\NEW\347\AxiomLearn_AI_Presentation_Deck.pptx"
 prs.save(out_file)
 print("SUCCESS: Saved to", out_file)
