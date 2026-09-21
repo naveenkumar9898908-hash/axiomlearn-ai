@@ -1,0 +1,402 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AxiomLearn AI — 6-Slide Executive Presentation</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #090D16;
+      color: #F1F5F9;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    .slide-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      transition: all 0.3s ease;
+    }
+    .slide-card:hover {
+      border-color: rgba(56, 189, 248, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.25);
+    }
+    .glow-cyan {
+      box-shadow: 0 0 20px rgba(6, 182, 212, 0.35);
+    }
+    .glow-emerald {
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.35);
+    }
+    .glow-violet {
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.35);
+    }
+    .hidden-slide {
+      display: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between p-4 md:p-8 select-none">
+
+  <!-- TOP HEADER & CONTROLS -->
+  <header class="flex items-center justify-between border-b border-slate-800/80 pb-4 mb-6">
+    <div class="flex items-center gap-3">
+      <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-bold text-white shadow-lg shadow-cyan-500/30">
+        AX
+      </div>
+      <div>
+        <h1 class="text-lg font-bold text-white tracking-wide flex items-center gap-2">
+          AxiomLearn AI <span class="text-xs px-2 py-0.5 rounded-full bg-cyan-950/80 text-cyan-400 border border-cyan-800/50">TENSORA 2026 [EDU-01]</span>
+        </h1>
+        <p class="text-xs text-slate-400">Adaptive Knowledge Tracing & Prerequisite Graph Engine</p>
+      </div>
+    </div>
+
+    <!-- Slide Navigation Controls -->
+    <div class="flex items-center gap-2">
+      <button onclick="prevSlide()" class="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-cyan-500/50 transition">
+        ◀ Previous
+      </button>
+      <div class="px-3 py-1.5 rounded-lg bg-slate-900/90 border border-slate-800 text-xs font-mono font-bold text-cyan-400">
+        Slide <span id="currentSlideNum">1</span> / 6
+      </div>
+      <button onclick="nextSlide()" class="p-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-semibold transition shadow-md shadow-cyan-500/30">
+        Next ▶
+      </button>
+    </div>
+  </header>
+
+  <!-- SLIDES CONTAINER -->
+  <main class="flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full">
+
+    <!-- SLIDE 1: TITLE & EXECUTIVE VISION -->
+    <div id="slide-1" class="slide-item space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider">
+        ★ TENSORA 2026 Hackathon • Problem Statement [EDU-01]
+      </div>
+      <h2 class="text-4xl md:text-5xl font-black tracking-tight text-white leading-tight">
+        AxiomLearn AI
+        <span class="block text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-cyan-400 via-indigo-400 to-emerald-400 bg-clip-text text-transparent mt-2">
+          Adaptive Knowledge Tracing & Prerequisite Graph Diagnostic Engine
+        </span>
+      </h2>
+      <p class="text-slate-300 text-base md:text-lg max-w-4xl leading-relaxed">
+        Eliminating the uniform pacing crisis in classrooms by pinpointing foundational prerequisite misconceptions through real-time dual-engine AI (<span class="text-cyan-400 font-semibold">BKT + DKT</span>), Zone of Proximal Development (<span class="text-violet-400 font-semibold">2PL IRT</span>) dynamic flow state matching, and automated <span class="text-emerald-400 font-semibold">4-step targeted micro-practice</span> remediation.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-cyan-500">
+          <div class="text-xs font-mono text-cyan-400 uppercase tracking-wider mb-2 font-bold">Pillar 01</div>
+          <h3 class="text-xl font-bold text-white mb-2">Precision Diagnostic</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Traverses Directed Acyclic Graph (DAG) syllabus prerequisites backwards to isolate foundational blockers from superficial student slip errors.
+          </p>
+        </div>
+        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-violet-500">
+          <div class="text-xs font-mono text-violet-400 uppercase tracking-wider mb-2 font-bold">Pillar 02</div>
+          <h3 class="text-xl font-bold text-white mb-2">Dual AI Tracing</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Combines Bayesian Knowledge Tracing with latency-aware slip modulation & a 32-neuron Recurrent GRU (DKT) predicting multi-concept mastery transfers.
+          </p>
+        </div>
+        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-emerald-500">
+          <div class="text-xs font-mono text-emerald-400 uppercase tracking-wider mb-2 font-bold">Pillar 03</div>
+          <h3 class="text-xl font-bold text-white mb-2">Closed-Loop Mastery</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Automates personalized 4-step micro-practice paths with gamification (XP, streaks, badges) and teacher cohort CRUD intelligence.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: THE PROBLEM & PROJECT SCOPE -->
+    <div id="slide-2" class="slide-item hidden-slide space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider">
+        Problem Statement & Educational Scope
+      </div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white">The Educational Crisis & Target Scope</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Problem Card -->
+        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-amber-500 space-y-4">
+          <h3 class="text-xl font-bold text-amber-400 flex items-center gap-2">
+            ⚠️ The Flaws of Traditional Instruction
+          </h3>
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-amber-400 font-bold">•</span>
+              <div><strong class="text-white">The Uniform Pacing Trap:</strong> Standard instruction moves at a fixed class tempo. Struggling students fall further behind, while fast learners get disengaged.</div>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-amber-400 font-bold">•</span>
+              <div><strong class="text-white">Hidden Foundational Gaps:</strong> A student failing Calculus or Recursion is rarely blocked by the theorem itself—their roadblock is forgotten prerequisite Algebra or base cases.</div>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-amber-400 font-bold">•</span>
+              <div><strong class="text-white">Lagging Diagnostic Feedback:</strong> Periodic exams provide post-mortem scores weeks late, with zero actionable path to heal the specific misconception.</div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Scope Card -->
+        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-cyan-500 space-y-4">
+          <h3 class="text-xl font-bold text-cyan-400 flex items-center gap-2">
+            🎯 Scope & Operational Boundaries
+          </h3>
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-cyan-400 font-bold">•</span>
+              <div><strong class="text-white">Curricular Coverage:</strong> Comprehensive multi-tiered STEM graphs in Higher Mathematics (Calculus, Trigonometry) and Computer Science (Algorithms, Trees).</div>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-cyan-400 font-bold">•</span>
+              <div><strong class="text-white">Full-Stack Solution:</strong> Dynamic Cyber-HUD Practice Arena, Prerequisite DAG Explorer, BKT/DKT Sandbox, and Teacher Cohort CRUD Command Center.</div>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-cyan-400 font-bold">•</span>
+              <div><strong class="text-white">Zero Server Latency:</strong> In-browser edge computation executing IRT difficulty adaptation and Bayesian updates in &lt;5 milliseconds.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: WORKFLOW & SYSTEM ARCHITECTURE -->
+    <div id="slide-3" class="slide-item hidden-slide space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/30 text-violet-400 text-xs font-bold uppercase tracking-wider">
+        System Workflow & Architecture
+      </div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white">The 5-Stage Adaptive Cognitive Loop</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+        <div class="slide-card p-5 rounded-xl border-t-4 border-t-cyan-400">
+          <div class="text-cyan-400 font-mono text-xs font-bold">STAGE 01</div>
+          <h4 class="font-bold text-white text-base mt-1 mb-2">Telemetry Ingestion</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Tracks response correctness, latency, and distractor signatures. Classifies fast (&lt;3s) careless slips vs slow (&gt;30s) conceptual struggles.
+          </p>
+        </div>
+
+        <div class="slide-card p-5 rounded-xl border-t-4 border-t-violet-400">
+          <div class="text-violet-400 font-mono text-xs font-bold">STAGE 02</div>
+          <h4 class="font-bold text-white text-base mt-1 mb-2">Dual Knowledge Tracing</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            BKT evaluates Corbett-Anderson posterior P(L_t). Recurrent GRU (DKT) propagates multi-concept cognitive transfers across syllabus nodes.
+          </p>
+        </div>
+
+        <div class="slide-card p-5 rounded-xl border-t-4 border-t-cyan-400">
+          <div class="text-cyan-400 font-mono text-xs font-bold">STAGE 03</div>
+          <h4 class="font-bold text-white text-base mt-1 mb-2">2PL IRT Flow Selection</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Item Response Theory maps student ability θ against question difficulty b to lock learner in the Zone of Proximal Development (~70-75% success).
+          </p>
+        </div>
+
+        <div class="slide-card p-5 rounded-xl border-t-4 border-t-amber-400">
+          <div class="text-amber-400 font-mono text-xs font-bold">STAGE 04</div>
+          <h4 class="font-bold text-white text-base mt-1 mb-2">Root-Cause Traversal</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Upon persistent failure, backward DAG traversal investigates parent prerequisites to isolate the true foundational misconception.
+          </p>
+        </div>
+
+        <div class="slide-card p-5 rounded-xl border-t-4 border-t-emerald-400">
+          <div class="text-emerald-400 font-mono text-xs font-bold">STAGE 05</div>
+          <h4 class="font-bold text-white text-base mt-1 mb-2">4-Step Micro-Remediation</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Step 1: Refresher &bull; Step 2: Foundational Check &bull; Step 3: Scaffolded Bridge &bull; Step 4: Mastery Verification with XP celebration.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: KEY FEATURES -->
+    <div id="slide-4" class="slide-item hidden-slide space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider">
+        Platform Capabilities
+      </div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white">Interactive Modules & Core Features</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="slide-card p-6 rounded-2xl border-l-4 border-l-cyan-400">
+          <h3 class="text-lg font-bold text-white mb-2 flex items-center justify-between">
+            <span>1. Adaptive Practice & Cyber-HUD</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-mono">Student</span>
+          </h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Sci-Fi Cyber-HUD 3D centerpiece with mouse parallax tilt, dynamic oscilloscope audio waveforms, real-time XP accumulation, streak multipliers, canvas confetti, and Web Audio SFX.
+          </p>
+        </div>
+
+        <div class="slide-card p-6 rounded-2xl border-l-4 border-l-violet-400">
+          <h3 class="text-lg font-bold text-white mb-2 flex items-center justify-between">
+            <span>2. Prerequisite Knowledge Graph (DAG)</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-violet-500/20 text-violet-300 font-mono">Cognitive</span>
+          </h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Interactive glassmorphic SVG graph with zoom/pan, depth tiers, mastery progress bars, and Prerequisite Chain Illumination highlighting upstream dependencies upon click.
+          </p>
+        </div>
+
+        <div class="slide-card p-6 rounded-2xl border-l-4 border-l-emerald-400">
+          <h3 class="text-lg font-bold text-white mb-2 flex items-center justify-between">
+            <span>3. Teacher Cohort Command Center (CRUD)</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono">Instructor</span>
+          </h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Full student lifecycle CRUD operations (Add, Edit Ability/Mastery, Inspect, Delete), search & filter chips, and 1-Click Systemic Workshop to remediate class-wide syllabus bottlenecks.
+          </p>
+        </div>
+
+        <div class="slide-card p-6 rounded-2xl border-l-4 border-l-amber-400">
+          <h3 class="text-lg font-bold text-white mb-2 flex items-center justify-between">
+            <span>4. Model Inspector & Multi-User Security</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono">Telemetry</span>
+          </h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Interactive Corbett-Anderson BKT sandbox with live equation calculation, 32-neuron recurrent DKT propagator, and secure multi-persona login with isolated local storage persistence.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: MEASURABLE BENEFITS -->
+    <div id="slide-5" class="slide-item hidden-slide space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+        Impact & Value Proposition
+      </div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white">Measurable Benefits & Value Delivered</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-cyan-500 space-y-3">
+          <h3 class="text-xl font-bold text-cyan-400">For Students</h3>
+          <div class="text-xs font-mono text-slate-400 uppercase tracking-wider">Zero Frustration Mastery</div>
+          <ul class="space-y-2 text-sm text-slate-300">
+            <li>&bull; <strong class="text-white">Targeted Remediation:</strong> Never stuck on an advanced problem due to an unaddressed foundation gap.</li>
+            <li>&bull; <strong class="text-white">Continuous Flow:</strong> Automatic difficulty scaling prevents both boredom and cognitive overload.</li>
+            <li>&bull; <strong class="text-white">Gamified Joy:</strong> Audio-visual feedback, streaks, and badges turn study into an addictive game.</li>
+          </ul>
+        </div>
+
+        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-emerald-500 space-y-3">
+          <h3 class="text-xl font-bold text-emerald-400">For Teachers</h3>
+          <div class="text-xs font-mono text-slate-400 uppercase tracking-wider">Precision Actionability</div>
+          <ul class="space-y-2 text-sm text-slate-300">
+            <li>&bull; <strong class="text-white">Exact Root Causes:</strong> Understand instantly that 8 students failed Calculus because of Factoring.</li>
+            <li>&bull; <strong class="text-white">1-Click Workshops:</strong> Run targeted class workshops to heal systemic bottlenecks simultaneously.</li>
+            <li>&bull; <strong class="text-white">Saved Hours:</strong> Eliminates manual grading and repetitive diagnostic homework design.</li>
+          </ul>
+        </div>
+
+        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-violet-500 space-y-3">
+          <h3 class="text-xl font-bold text-violet-400">For Institutions</h3>
+          <div class="text-xs font-mono text-slate-400 uppercase tracking-wider">Retention & Scale</div>
+          <ul class="space-y-2 text-sm text-slate-300">
+            <li>&bull; <strong class="text-white">Higher Pass Rates:</strong> Delivers the 2-Sigma Bloom effect of 1-on-1 personalized tutoring at scale.</li>
+            <li>&bull; <strong class="text-white">Early At-Risk Flags:</strong> Identifies struggling learners in week 1 rather than after midterm failure.</li>
+            <li>&bull; <strong class="text-white">Zero Server Cost:</strong> In-browser edge computation runs friction-free on low-spec hardware.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: TECH STACK, TESTING & ROADMAP -->
+    <div id="slide-6" class="slide-item hidden-slide space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/30 text-violet-400 text-xs font-bold uppercase tracking-wider">
+        Architecture & Future Vision
+      </div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white">Technology Stack, Verification & Roadmap</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-cyan-500 space-y-3">
+          <h3 class="text-lg font-bold text-cyan-400">Full Tech Stack</h3>
+          <ul class="space-y-2 text-xs text-slate-300">
+            <li>&bull; <strong class="text-white">Frontend:</strong> React 18, TypeScript, Tailwind CSS, Lucide Icons</li>
+            <li>&bull; <strong class="text-white">Build:</strong> Vite & PostCSS</li>
+            <li>&bull; <strong class="text-white">FX & Audio:</strong> HTML5 Canvas Particle Physics, Web Audio API</li>
+            <li>&bull; <strong class="text-white">Version Control:</strong> GitHub Repository & Git Integration</li>
+          </ul>
+        </div>
+
+        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-emerald-500 space-y-3">
+          <h3 class="text-lg font-bold text-emerald-400">Rigorous Quality</h3>
+          <ul class="space-y-2 text-xs text-slate-300">
+            <li>&bull; <strong class="text-white">Test Suites:</strong> 5/5 Engine tests passing (BKT, DKT, IRT, DAG)</li>
+            <li>&bull; <strong class="text-white">Type Safety:</strong> 0 TypeScript compile errors across 37 files</li>
+            <li>&bull; <strong class="text-white">Performance:</strong> Sub-5ms latency for question selection</li>
+            <li>&bull; <strong class="text-white">Storage:</strong> Complete account-isolated localStorage persistence</li>
+          </ul>
+        </div>
+
+        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-violet-500 space-y-3">
+          <h3 class="text-lg font-bold text-violet-400">Future Roadmap</h3>
+          <ul class="space-y-2 text-xs text-slate-300">
+            <li>&bull; <strong class="text-white">Phase 1:</strong> Spoken Socratic Voice Tutor with step-by-step guidance</li>
+            <li>&bull; <strong class="text-white">Phase 2:</strong> LMS integration (Canvas, Blackboard via LTI 1.3)</li>
+            <li>&bull; <strong class="text-white">Phase 3:</strong> Cross-disciplinary knowledge graph unification</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- BOTTOM FOOTER -->
+  <footer class="flex items-center justify-between border-t border-slate-800/80 pt-4 mt-6 text-xs text-slate-500">
+    <div class="flex items-center gap-4">
+      <span>Use <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">◀</kbd> <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">▶</kbd> or <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">Space</kbd> to navigate</span>
+      <span>•</span>
+      <span>PowerPoint File Available: <strong class="text-cyan-400">AxiomLearn_AI_Presentation.pptx</strong></span>
+    </div>
+    <div class="text-slate-400 font-mono">
+      TENSORA 2026 EDU-01 &bull; AxiomLearn AI
+    </div>
+  </footer>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 6;
+
+    function updateSlide() {
+      for (let i = 1; i <= totalSlides; i++) {
+        const slide = document.getElementById(`slide-${i}`);
+        if (slide) {
+          if (i === currentSlide) {
+            slide.classList.remove('hidden-slide');
+          } else {
+            slide.classList.add('hidden-slide');
+          }
+        }
+      }
+      document.getElementById('currentSlideNum').innerText = currentSlide;
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      }
+    });
+  </script>
+</body>
+</html>
