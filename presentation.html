@@ -3,37 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AxiomLearn AI — 6-Slide Executive Presentation</title>
+  <title>AxiomLearn AI — Easy & Simple 6-Slide Presentation</title>
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background: #090D16;
-      color: #F1F5F9;
+      background: #0B1120;
+      color: #F8FAFC;
       margin: 0;
       padding: 0;
       overflow-x: hidden;
     }
     .slide-card {
-      background: rgba(15, 23, 42, 0.75);
+      background: rgba(30, 41, 59, 0.7);
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      transition: all 0.3s ease;
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 1.25rem;
+      transition: all 0.25s ease;
     }
     .slide-card:hover {
-      border-color: rgba(56, 189, 248, 0.5);
+      border-color: rgba(6, 182, 212, 0.4);
       transform: translateY(-2px);
-      box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.25);
-    }
-    .glow-cyan {
-      box-shadow: 0 0 20px rgba(6, 182, 212, 0.35);
-    }
-    .glow-emerald {
-      box-shadow: 0 0 20px rgba(16, 185, 129, 0.35);
-    }
-    .glow-violet {
-      box-shadow: 0 0 20px rgba(139, 92, 246, 0.35);
+      box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.2);
     }
     .hidden-slide {
       display: none;
@@ -42,319 +34,286 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between p-4 md:p-8 select-none">
 
-  <!-- TOP HEADER & CONTROLS -->
-  <header class="flex items-center justify-between border-b border-slate-800/80 pb-4 mb-6">
+  <!-- HEADER -->
+  <header class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
     <div class="flex items-center gap-3">
-      <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-bold text-white shadow-lg shadow-cyan-500/30">
+      <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-extrabold text-white shadow-lg shadow-cyan-500/30">
         AX
       </div>
       <div>
         <h1 class="text-lg font-bold text-white tracking-wide flex items-center gap-2">
-          AxiomLearn AI <span class="text-xs px-2 py-0.5 rounded-full bg-cyan-950/80 text-cyan-400 border border-cyan-800/50">TENSORA 2026 [EDU-01]</span>
+          AxiomLearn AI <span class="text-xs px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800 font-medium">Simplified 6-Slide Deck</span>
         </h1>
-        <p class="text-xs text-slate-400">Adaptive Knowledge Tracing & Prerequisite Graph Engine</p>
+        <p class="text-xs text-slate-400">The Smart GPS for Learning &bull; TENSORA 2026 [EDU-01]</p>
       </div>
     </div>
 
-    <!-- Slide Navigation Controls -->
     <div class="flex items-center gap-2">
-      <button onclick="prevSlide()" class="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-cyan-500/50 transition">
+      <button onclick="prevSlide()" class="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-cyan-500/50 transition text-sm">
         ◀ Previous
       </button>
-      <div class="px-3 py-1.5 rounded-lg bg-slate-900/90 border border-slate-800 text-xs font-mono font-bold text-cyan-400">
+      <div class="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono font-bold text-cyan-400">
         Slide <span id="currentSlideNum">1</span> / 6
       </div>
-      <button onclick="nextSlide()" class="p-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-semibold transition shadow-md shadow-cyan-500/30">
+      <button onclick="nextSlide()" class="px-3 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-semibold transition text-sm shadow-md shadow-cyan-500/20">
         Next ▶
       </button>
     </div>
   </header>
 
-  <!-- SLIDES CONTAINER -->
-  <main class="flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full">
+  <!-- MAIN SLIDES -->
+  <main class="flex-1 flex flex-col justify-center max-w-6xl mx-auto w-full">
 
-    <!-- SLIDE 1: TITLE & EXECUTIVE VISION -->
+    <!-- SLIDE 1: THE BIG IDEA -->
     <div id="slide-1" class="slide-item space-y-6">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider">
-        ★ TENSORA 2026 Hackathon • Problem Statement [EDU-01]
+        💡 The Big Idea in 1 Sentence
       </div>
-      <h2 class="text-4xl md:text-5xl font-black tracking-tight text-white leading-tight">
+      <h2 class="text-4xl md:text-5xl font-black text-white leading-tight">
         AxiomLearn AI
-        <span class="block text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-cyan-400 via-indigo-400 to-emerald-400 bg-clip-text text-transparent mt-2">
-          Adaptive Knowledge Tracing & Prerequisite Graph Diagnostic Engine
+        <span class="block text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-cyan-400 via-indigo-300 to-emerald-400 bg-clip-text text-transparent mt-2">
+          The Intelligent GPS for Your Brain
         </span>
       </h2>
-      <p class="text-slate-300 text-base md:text-lg max-w-4xl leading-relaxed">
-        Eliminating the uniform pacing crisis in classrooms by pinpointing foundational prerequisite misconceptions through real-time dual-engine AI (<span class="text-cyan-400 font-semibold">BKT + DKT</span>), Zone of Proximal Development (<span class="text-violet-400 font-semibold">2PL IRT</span>) dynamic flow state matching, and automated <span class="text-emerald-400 font-semibold">4-step targeted micro-practice</span> remediation.
+      <p class="text-slate-300 text-base md:text-lg max-w-3xl leading-relaxed">
+        When you get an answer wrong, standard school tests just say <span class="text-rose-400 font-bold">"INCORRECT"</span>. 
+        <strong>AxiomLearn AI</strong> finds the <span class="text-cyan-400 font-bold">exact missing building block</span> from your past and fixes it in 4 quick, friendly steps.
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-cyan-500">
-          <div class="text-xs font-mono text-cyan-400 uppercase tracking-wider mb-2 font-bold">Pillar 01</div>
-          <h3 class="text-xl font-bold text-white mb-2">Precision Diagnostic</h3>
-          <p class="text-sm text-slate-400 leading-relaxed">
-            Traverses Directed Acyclic Graph (DAG) syllabus prerequisites backwards to isolate foundational blockers from superficial student slip errors.
+        <div class="slide-card p-6 border-t-4 border-t-cyan-400">
+          <div class="text-2xl mb-2">🩺</div>
+          <h3 class="text-lg font-bold text-white mb-2">Like an MRI Scanner</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Tests are like thermometers: they tell you that you have a fever (Score: 40%), but can't say why. AxiomLearn scans your thought process to find the exact germ causing confusion.
           </p>
         </div>
-        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-violet-500">
-          <div class="text-xs font-mono text-violet-400 uppercase tracking-wider mb-2 font-bold">Pillar 02</div>
-          <h3 class="text-xl font-bold text-white mb-2">Dual AI Tracing</h3>
-          <p class="text-sm text-slate-400 leading-relaxed">
-            Combines Bayesian Knowledge Tracing with latency-aware slip modulation & a 32-neuron Recurrent GRU (DKT) predicting multi-concept mastery transfers.
+        <div class="slide-card p-6 border-t-4 border-t-indigo-400">
+          <div class="text-2xl mb-2">🗺️</div>
+          <h3 class="text-lg font-bold text-white mb-2">Like Google Maps</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            When you miss an exit, Google Maps doesn't shout or give up. It simply recalculates the fastest, easiest detour to get you back on the right road.
           </p>
         </div>
-        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-emerald-500">
-          <div class="text-xs font-mono text-emerald-400 uppercase tracking-wider mb-2 font-bold">Pillar 03</div>
-          <h3 class="text-xl font-bold text-white mb-2">Closed-Loop Mastery</h3>
-          <p class="text-sm text-slate-400 leading-relaxed">
-            Automates personalized 4-step micro-practice paths with gamification (XP, streaks, badges) and teacher cohort CRUD intelligence.
+        <div class="slide-card p-6 border-t-4 border-t-emerald-400">
+          <div class="text-2xl mb-2">🎮</div>
+          <h3 class="text-lg font-bold text-white mb-2">Like a Video Game</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Earn XP points, unlock secret badges, build daily streaks, and level up as you master math and coding topics.
           </p>
         </div>
       </div>
     </div>
 
-    <!-- SLIDE 2: THE PROBLEM & PROJECT SCOPE -->
+    <!-- SLIDE 2: THE REAL PROBLEM -->
     <div id="slide-2" class="slide-item hidden-slide space-y-6">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider">
-        Problem Statement & Educational Scope
+        ⚠️ Why School Homework Feels Painful
       </div>
-      <h2 class="text-3xl md:text-4xl font-extrabold text-white">The Educational Crisis & Target Scope</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white">Why Do Students Really Struggle?</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Problem Card -->
-        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-amber-500 space-y-4">
-          <h3 class="text-xl font-bold text-amber-400 flex items-center gap-2">
-            ⚠️ The Flaws of Traditional Instruction
-          </h3>
-          <ul class="space-y-3 text-sm text-slate-300">
-            <li class="flex items-start gap-2">
-              <span class="text-amber-400 font-bold">•</span>
-              <div><strong class="text-white">The Uniform Pacing Trap:</strong> Standard instruction moves at a fixed class tempo. Struggling students fall further behind, while fast learners get disengaged.</div>
+        <div class="slide-card p-6 border-t-4 border-t-rose-500 space-y-4">
+          <h3 class="text-lg font-bold text-rose-400">❌ The 3 Flaws of Normal Classrooms</h3>
+          <ul class="space-y-3 text-xs text-slate-300 leading-relaxed">
+            <li>
+              <strong class="text-white">1. One-Speed Fits Nobody:</strong> A teacher with 30 students must teach at one speed. Fast kids get bored, while struggling kids get left behind.
             </li>
-            <li class="flex items-start gap-2">
-              <span class="text-amber-400 font-bold">•</span>
-              <div><strong class="text-white">Hidden Foundational Gaps:</strong> A student failing Calculus or Recursion is rarely blocked by the theorem itself—their roadblock is forgotten prerequisite Algebra or base cases.</div>
+            <li>
+              <strong class="text-white">2. The "Tower of Blocks" Problem:</strong> Learning is like stacking blocks. If block #3 (basic algebra) is missing, block #10 (calculus) will always collapse!
             </li>
-            <li class="flex items-start gap-2">
-              <span class="text-amber-400 font-bold">•</span>
-              <div><strong class="text-white">Lagging Diagnostic Feedback:</strong> Periodic exams provide post-mortem scores weeks late, with zero actionable path to heal the specific misconception.</div>
+            <li>
+              <strong class="text-white">3. Report Cards Come Too Late:</strong> Finding out you failed at the end of the semester is useless. By then, the damage is already done.
             </li>
           </ul>
         </div>
 
-        <!-- Scope Card -->
-        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-cyan-500 space-y-4">
-          <h3 class="text-xl font-bold text-cyan-400 flex items-center gap-2">
-            🎯 Scope & Operational Boundaries
-          </h3>
-          <ul class="space-y-3 text-sm text-slate-300">
-            <li class="flex items-start gap-2">
-              <span class="text-cyan-400 font-bold">•</span>
-              <div><strong class="text-white">Curricular Coverage:</strong> Comprehensive multi-tiered STEM graphs in Higher Mathematics (Calculus, Trigonometry) and Computer Science (Algorithms, Trees).</div>
+        <div class="slide-card p-6 border-t-4 border-t-cyan-500 space-y-4">
+          <h3 class="text-lg font-bold text-cyan-400">✨ How AxiomLearn AI Fixes It</h3>
+          <ul class="space-y-3 text-xs text-slate-300 leading-relaxed">
+            <li>
+              <strong class="text-white">1. Your Own Pace:</strong> Fast learners zoom ahead; students who need extra time get patient, friendly guidance.
             </li>
-            <li class="flex items-start gap-2">
-              <span class="text-cyan-400 font-bold">•</span>
-              <div><strong class="text-white">Full-Stack Solution:</strong> Dynamic Cyber-HUD Practice Arena, Prerequisite DAG Explorer, BKT/DKT Sandbox, and Teacher Cohort CRUD Command Center.</div>
+            <li>
+              <strong class="text-white">2. Finds the Missing Brick:</strong> Our AI checks your foundation to find the tiny gap you forgot from 2 years ago.
             </li>
-            <li class="flex items-start gap-2">
-              <span class="text-cyan-400 font-bold">•</span>
-              <div><strong class="text-white">Zero Server Latency:</strong> In-browser edge computation executing IRT difficulty adaptation and Bayesian updates in &lt;5 milliseconds.</div>
+            <li>
+              <strong class="text-white">3. Instant 60-Second Fix:</strong> Bridges the gap right when it happens, so you never fall behind or feel confused.
             </li>
           </ul>
         </div>
       </div>
     </div>
 
-    <!-- SLIDE 3: WORKFLOW & SYSTEM ARCHITECTURE -->
+    <!-- SLIDE 3: HOW IT WORKS IN 4 EASY STEPS -->
     <div id="slide-3" class="slide-item hidden-slide space-y-6">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/30 text-violet-400 text-xs font-bold uppercase tracking-wider">
-        System Workflow & Architecture
+        🚀 Simple 4-Step Process
       </div>
-      <h2 class="text-3xl md:text-4xl font-extrabold text-white">The 5-Stage Adaptive Cognitive Loop</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white">How AxiomLearn AI Works (In Plain English)</h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
-        <div class="slide-card p-5 rounded-xl border-t-4 border-t-cyan-400">
-          <div class="text-cyan-400 font-mono text-xs font-bold">STAGE 01</div>
-          <h4 class="font-bold text-white text-base mt-1 mb-2">Telemetry Ingestion</h4>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="slide-card p-5 border-t-4 border-t-cyan-400">
+          <div class="text-2xl mb-1">🎯</div>
+          <div class="text-xs font-mono text-cyan-400 font-bold">STEP 01</div>
+          <h4 class="font-bold text-white text-sm my-1">You Practice</h4>
           <p class="text-xs text-slate-400 leading-relaxed">
-            Tracks response correctness, latency, and distractor signatures. Classifies fast (&lt;3s) careless slips vs slow (&gt;30s) conceptual struggles.
+            Answer questions matched to your exact ability. Never too easy, never impossibly hard—always in your sweet spot.
           </p>
         </div>
 
-        <div class="slide-card p-5 rounded-xl border-t-4 border-t-violet-400">
-          <div class="text-violet-400 font-mono text-xs font-bold">STAGE 02</div>
-          <h4 class="font-bold text-white text-base mt-1 mb-2">Dual Knowledge Tracing</h4>
+        <div class="slide-card p-5 border-t-4 border-t-indigo-400">
+          <div class="text-2xl mb-1">🧠</div>
+          <div class="text-xs font-mono text-indigo-400 font-bold">STEP 02</div>
+          <h4 class="font-bold text-white text-sm my-1">AI Listens</h4>
           <p class="text-xs text-slate-400 leading-relaxed">
-            BKT evaluates Corbett-Anderson posterior P(L_t). Recurrent GRU (DKT) propagates multi-concept cognitive transfers across syllabus nodes.
+            The AI watches your answers and response speed. It knows if you made a quick careless slip or if you're truly stuck.
           </p>
         </div>
 
-        <div class="slide-card p-5 rounded-xl border-t-4 border-t-cyan-400">
-          <div class="text-cyan-400 font-mono text-xs font-bold">STAGE 03</div>
-          <h4 class="font-bold text-white text-base mt-1 mb-2">2PL IRT Flow Selection</h4>
+        <div class="slide-card p-5 border-t-4 border-t-amber-400">
+          <div class="text-2xl mb-1">🔍</div>
+          <div class="text-xs font-mono text-amber-400 font-bold">STEP 03</div>
+          <h4 class="font-bold text-white text-sm my-1">Root Detective</h4>
           <p class="text-xs text-slate-400 leading-relaxed">
-            Item Response Theory maps student ability θ against question difficulty b to lock learner in the Zone of Proximal Development (~70-75% success).
+            If you get stuck, the AI looks down the tree of concepts to find the exact missing prerequisite that tripped you up.
           </p>
         </div>
 
-        <div class="slide-card p-5 rounded-xl border-t-4 border-t-amber-400">
-          <div class="text-amber-400 font-mono text-xs font-bold">STAGE 04</div>
-          <h4 class="font-bold text-white text-base mt-1 mb-2">Root-Cause Traversal</h4>
+        <div class="slide-card p-5 border-t-4 border-t-emerald-400">
+          <div class="text-2xl mb-1">🎉</div>
+          <div class="text-xs font-mono text-emerald-400 font-bold">STEP 04</div>
+          <h4 class="font-bold text-white text-sm my-1">The 4-Step Fix</h4>
           <p class="text-xs text-slate-400 leading-relaxed">
-            Upon persistent failure, backward DAG traversal investigates parent prerequisites to isolate the true foundational misconception.
-          </p>
-        </div>
-
-        <div class="slide-card p-5 rounded-xl border-t-4 border-t-emerald-400">
-          <div class="text-emerald-400 font-mono text-xs font-bold">STAGE 05</div>
-          <h4 class="font-bold text-white text-base mt-1 mb-2">4-Step Micro-Remediation</h4>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Step 1: Refresher &bull; Step 2: Foundational Check &bull; Step 3: Scaffolded Bridge &bull; Step 4: Mastery Verification with XP celebration.
+            1. 60s Refresher &bull; 2. Quick Check &bull; 3. Bridge Practice &bull; 4. Victory test with confetti & sound effects!
           </p>
         </div>
       </div>
     </div>
 
-    <!-- SLIDE 4: KEY FEATURES -->
+    <!-- SLIDE 4: FEATURES -->
     <div id="slide-4" class="slide-item hidden-slide space-y-6">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider">
-        Platform Capabilities
+        🎮 Fun Features You Can See & Touch
       </div>
-      <h2 class="text-3xl md:text-4xl font-extrabold text-white">Interactive Modules & Core Features</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white">What Makes AxiomLearn AI Special?</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="slide-card p-6 rounded-2xl border-l-4 border-l-cyan-400">
-          <h3 class="text-lg font-bold text-white mb-2 flex items-center justify-between">
-            <span>1. Adaptive Practice & Cyber-HUD</span>
-            <span class="text-xs px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-mono">Student</span>
+        <div class="slide-card p-5 border-l-4 border-l-cyan-400">
+          <h3 class="text-base font-bold text-white mb-1 flex items-center gap-2">
+            <span>🎮 Futuristic Practice Arena</span>
           </h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            Sci-Fi Cyber-HUD 3D centerpiece with mouse parallax tilt, dynamic oscilloscope audio waveforms, real-time XP accumulation, streak multipliers, canvas confetti, and Web Audio SFX.
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Sci-Fi 3D centerpiece, confetti explosions when you win, sound effects, XP points, streaks (🔥), and 7 unlockable badges.
           </p>
         </div>
 
-        <div class="slide-card p-6 rounded-2xl border-l-4 border-l-violet-400">
-          <h3 class="text-lg font-bold text-white mb-2 flex items-center justify-between">
-            <span>2. Prerequisite Knowledge Graph (DAG)</span>
-            <span class="text-xs px-2 py-0.5 rounded bg-violet-500/20 text-violet-300 font-mono">Cognitive</span>
+        <div class="slide-card p-5 border-l-4 border-l-violet-400">
+          <h3 class="text-base font-bold text-white mb-1 flex items-center gap-2">
+            <span>🌳 Glowing Knowledge Tree</span>
           </h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            Interactive glassmorphic SVG graph with zoom/pan, depth tiers, mastery progress bars, and Prerequisite Chain Illumination highlighting upstream dependencies upon click.
+          <p class="text-xs text-slate-300 leading-relaxed">
+            A beautiful visual map of Math & Coding topics. Click any topic to see what you need to learn first and what unlocks next.
           </p>
         </div>
 
-        <div class="slide-card p-6 rounded-2xl border-l-4 border-l-emerald-400">
-          <h3 class="text-lg font-bold text-white mb-2 flex items-center justify-between">
-            <span>3. Teacher Cohort Command Center (CRUD)</span>
-            <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono">Instructor</span>
+        <div class="slide-card p-5 border-l-4 border-l-emerald-400">
+          <h3 class="text-base font-bold text-white mb-1 flex items-center gap-2">
+            <span>👩‍🏫 Teacher Super-Dashboard</span>
           </h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            Full student lifecycle CRUD operations (Add, Edit Ability/Mastery, Inspect, Delete), search & filter chips, and 1-Click Systemic Workshop to remediate class-wide syllabus bottlenecks.
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Teachers can see every student's real-time progress card. 1-Click "Class Workshop" button fixes the biggest class roadblock all at once.
           </p>
         </div>
 
-        <div class="slide-card p-6 rounded-2xl border-l-4 border-l-amber-400">
-          <h3 class="text-lg font-bold text-white mb-2 flex items-center justify-between">
-            <span>4. Model Inspector & Multi-User Security</span>
-            <span class="text-xs px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono">Telemetry</span>
+        <div class="slide-card p-5 border-l-4 border-l-amber-400">
+          <h3 class="text-base font-bold text-white mb-1 flex items-center gap-2">
+            <span>🔐 Personal Accounts for Everyone</span>
           </h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            Interactive Corbett-Anderson BKT sandbox with live equation calculation, 32-neuron recurrent DKT propagator, and secure multi-persona login with isolated local storage persistence.
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Unique logins for students and teachers. All your XP, badges, and progress are saved automatically on your machine.
           </p>
         </div>
       </div>
     </div>
 
-    <!-- SLIDE 5: MEASURABLE BENEFITS -->
+    <!-- SLIDE 5: WHY EVERYONE WINS -->
     <div id="slide-5" class="slide-item hidden-slide space-y-6">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
-        Impact & Value Proposition
+        🏆 Real Benefits
       </div>
-      <h2 class="text-3xl md:text-4xl font-extrabold text-white">Measurable Benefits & Value Delivered</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white">How Everyone Wins</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-cyan-500 space-y-3">
-          <h3 class="text-xl font-bold text-cyan-400">For Students</h3>
-          <div class="text-xs font-mono text-slate-400 uppercase tracking-wider">Zero Frustration Mastery</div>
-          <ul class="space-y-2 text-sm text-slate-300">
-            <li>&bull; <strong class="text-white">Targeted Remediation:</strong> Never stuck on an advanced problem due to an unaddressed foundation gap.</li>
-            <li>&bull; <strong class="text-white">Continuous Flow:</strong> Automatic difficulty scaling prevents both boredom and cognitive overload.</li>
-            <li>&bull; <strong class="text-white">Gamified Joy:</strong> Audio-visual feedback, streaks, and badges turn study into an addictive game.</li>
+        <div class="slide-card p-6 border-t-4 border-t-cyan-400 space-y-3">
+          <h3 class="text-base font-bold text-cyan-400">🧑‍🎓 For Students</h3>
+          <ul class="space-y-2 text-xs text-slate-300 leading-relaxed">
+            <li>&bull; <strong class="text-white">No More Tears:</strong> Never feel stupid or stuck on impossible homework.</li>
+            <li>&bull; <strong class="text-white">Learn in Half the Time:</strong> Skip what you already know and focus only on what you need.</li>
+            <li>&bull; <strong class="text-white">Actually Fun:</strong> Feels like playing a game, not doing dry worksheets.</li>
           </ul>
         </div>
 
-        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-emerald-500 space-y-3">
-          <h3 class="text-xl font-bold text-emerald-400">For Teachers</h3>
-          <div class="text-xs font-mono text-slate-400 uppercase tracking-wider">Precision Actionability</div>
-          <ul class="space-y-2 text-sm text-slate-300">
-            <li>&bull; <strong class="text-white">Exact Root Causes:</strong> Understand instantly that 8 students failed Calculus because of Factoring.</li>
-            <li>&bull; <strong class="text-white">1-Click Workshops:</strong> Run targeted class workshops to heal systemic bottlenecks simultaneously.</li>
-            <li>&bull; <strong class="text-white">Saved Hours:</strong> Eliminates manual grading and repetitive diagnostic homework design.</li>
+        <div class="slide-card p-6 border-t-4 border-t-emerald-400 space-y-3">
+          <h3 class="text-base font-bold text-emerald-400">👩‍🏫 For Teachers</h3>
+          <ul class="space-y-2 text-xs text-slate-300 leading-relaxed">
+            <li>&bull; <strong class="text-white">Saves 10+ Hours/Week:</strong> No more manual grading of repetitive quizzes.</li>
+            <li>&bull; <strong class="text-white">Exact Diagnosis:</strong> Know exactly why half the class failed a quiz.</li>
+            <li>&bull; <strong class="text-white">1-Click Fixes:</strong> Run an instant mini-workshop on the exact problem topic.</li>
           </ul>
         </div>
 
-        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-violet-500 space-y-3">
-          <h3 class="text-xl font-bold text-violet-400">For Institutions</h3>
-          <div class="text-xs font-mono text-slate-400 uppercase tracking-wider">Retention & Scale</div>
-          <ul class="space-y-2 text-sm text-slate-300">
-            <li>&bull; <strong class="text-white">Higher Pass Rates:</strong> Delivers the 2-Sigma Bloom effect of 1-on-1 personalized tutoring at scale.</li>
-            <li>&bull; <strong class="text-white">Early At-Risk Flags:</strong> Identifies struggling learners in week 1 rather than after midterm failure.</li>
-            <li>&bull; <strong class="text-white">Zero Server Cost:</strong> In-browser edge computation runs friction-free on low-spec hardware.</li>
+        <div class="slide-card p-6 border-t-4 border-t-violet-400 space-y-3">
+          <h3 class="text-base font-bold text-violet-400">🏫 For Schools & Parents</h3>
+          <ul class="space-y-2 text-xs text-slate-300 leading-relaxed">
+            <li>&bull; <strong class="text-white">Higher Grades:</strong> Every child gets a private 1-on-1 tutor for free.</li>
+            <li>&bull; <strong class="text-white">Early Warning:</strong> Catch learning gaps in week 1, not during final exams.</li>
+            <li>&bull; <strong class="text-white">Works Everywhere:</strong> Runs fast on any basic school computer or Chromebook.</li>
           </ul>
         </div>
       </div>
     </div>
 
-    <!-- SLIDE 6: TECH STACK, TESTING & ROADMAP -->
+    <!-- SLIDE 6: SUMMARY & WHAT'S NEXT -->
     <div id="slide-6" class="slide-item hidden-slide space-y-6">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/30 text-violet-400 text-xs font-bold uppercase tracking-wider">
-        Architecture & Future Vision
+        🌟 Summary & Future Vision
       </div>
-      <h2 class="text-3xl md:text-4xl font-extrabold text-white">Technology Stack, Verification & Roadmap</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white">Where We Stand & What's Next</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-cyan-500 space-y-3">
-          <h3 class="text-lg font-bold text-cyan-400">Full Tech Stack</h3>
-          <ul class="space-y-2 text-xs text-slate-300">
-            <li>&bull; <strong class="text-white">Frontend:</strong> React 18, TypeScript, Tailwind CSS, Lucide Icons</li>
-            <li>&bull; <strong class="text-white">Build:</strong> Vite & PostCSS</li>
-            <li>&bull; <strong class="text-white">FX & Audio:</strong> HTML5 Canvas Particle Physics, Web Audio API</li>
-            <li>&bull; <strong class="text-white">Version Control:</strong> GitHub Repository & Git Integration</li>
-          </ul>
+        <div class="slide-card p-6 border-t-4 border-t-cyan-400 space-y-3">
+          <h3 class="text-base font-bold text-cyan-400">✅ 100% Ready Today</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Fully built, 0 errors, 5/5 engine tests passing, live development server, and uploaded to GitHub.
+          </p>
         </div>
 
-        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-emerald-500 space-y-3">
-          <h3 class="text-lg font-bold text-emerald-400">Rigorous Quality</h3>
-          <ul class="space-y-2 text-xs text-slate-300">
-            <li>&bull; <strong class="text-white">Test Suites:</strong> 5/5 Engine tests passing (BKT, DKT, IRT, DAG)</li>
-            <li>&bull; <strong class="text-white">Type Safety:</strong> 0 TypeScript compile errors across 37 files</li>
-            <li>&bull; <strong class="text-white">Performance:</strong> Sub-5ms latency for question selection</li>
-            <li>&bull; <strong class="text-white">Storage:</strong> Complete account-isolated localStorage persistence</li>
-          </ul>
+        <div class="slide-card p-6 border-t-4 border-t-emerald-400 space-y-3">
+          <h3 class="text-base font-bold text-emerald-400">💡 The Big Takeaway</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Uniform pacing is dead. Gaps are completely solvable. AxiomLearn AI gives every child their own patient, encouraging guide.
+          </p>
         </div>
 
-        <div class="slide-card p-6 rounded-2xl border-t-4 border-t-violet-500 space-y-3">
-          <h3 class="text-lg font-bold text-violet-400">Future Roadmap</h3>
-          <ul class="space-y-2 text-xs text-slate-300">
-            <li>&bull; <strong class="text-white">Phase 1:</strong> Spoken Socratic Voice Tutor with step-by-step guidance</li>
-            <li>&bull; <strong class="text-white">Phase 2:</strong> LMS integration (Canvas, Blackboard via LTI 1.3)</li>
-            <li>&bull; <strong class="text-white">Phase 3:</strong> Cross-disciplinary knowledge graph unification</li>
-          </ul>
+        <div class="slide-card p-6 border-t-4 border-t-violet-400 space-y-3">
+          <h3 class="text-base font-bold text-violet-400">🔮 Coming Very Soon</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            🎙️ Talking AI Voice Tutor that gives verbal hints out loud + 📲 1-click Google Classroom sync + 🔬 Science & Physics trees.
+          </p>
         </div>
       </div>
     </div>
 
   </main>
 
-  <!-- BOTTOM FOOTER -->
-  <footer class="flex items-center justify-between border-t border-slate-800/80 pt-4 mt-6 text-xs text-slate-500">
-    <div class="flex items-center gap-4">
-      <span>Use <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">◀</kbd> <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">▶</kbd> or <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">Space</kbd> to navigate</span>
-      <span>•</span>
-      <span>PowerPoint File Available: <strong class="text-cyan-400">AxiomLearn_AI_Presentation.pptx</strong></span>
+  <!-- FOOTER -->
+  <footer class="flex items-center justify-between border-t border-slate-800 pt-4 mt-6 text-xs text-slate-500">
+    <div>
+      <span>Use <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">◀</kbd> <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">▶</kbd> or <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">Space</kbd> to change slides</span>
     </div>
     <div class="text-slate-400 font-mono">
-      TENSORA 2026 EDU-01 &bull; AxiomLearn AI
+      AxiomLearn AI &bull; TENSORA 2026 [EDU-01]
     </div>
   </footer>
 
