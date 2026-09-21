@@ -358,49 +358,133 @@
     </div>
 
     <!-- =======================================================================
-         SLIDE 4: 3D MODULES & INTERACTIVE FEATURES
+         SLIDE 4: 3D MODULES & INTERACTIVE FEATURES (DETAILED)
          ======================================================================= -->
     <div id="slide-4" class="slide-item hidden-slide space-y-6">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider">
-        🕹️ 3D Modules & Capabilities
+        🕹️ 3D Modules & Core Capabilities
       </div>
       <h2 class="text-3xl md:text-4xl font-extrabold text-white">Interactive Modules You Can Touch & Use</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="card-3d p-6 border-l-4 border-l-cyan-400" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
-          <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
-            <span>🕹️ Futuristic Cyber-HUD Arena</span>
-          </h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Sci-Fi 3D centerpiece with mouse parallax tilt, dynamic oscilloscope audio waveforms, real-time XP engine, level-up bar, streak multiplier flames, and physics-based confetti explosions.
-          </p>
+        <!-- 1. CYBER-HUD ARENA -->
+        <div class="card-3d p-6 border-l-4 border-l-cyan-400 flex flex-col justify-between" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="space-y-3">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+              <span>🎮 1. Futuristic Cyber-HUD Arena</span>
+            </h3>
+            <p class="text-xs text-slate-300">
+              This is the interactive learning area where students practice and interact with the system.
+            </p>
+            <div class="bg-slate-900/70 p-3 rounded-xl border border-slate-800 space-y-2 text-xs text-slate-300">
+              <div>
+                <strong class="text-cyan-400">• 3D mouse parallax tilt & oscilloscope audio waves:</strong><br/>
+                Screen responds to mouse movement creating a 3D effect; audio waves move dynamically.
+              </div>
+              <div>
+                <strong class="text-cyan-400">• Real-time XP engine, level-up bar & streak multiplier flames:</strong><br/>
+                <span class="text-slate-200 font-mono text-[11px]">Answer questions ➔ Earn XP ➔ Increase level ➔ Maintain streak 🔥</span>
+              </div>
+              <div>
+                <strong class="text-cyan-400">• Physics-based canvas force & custom synthesized sound effects:</strong><br/>
+                Animations and synthesized audio make interactions feel engaging and tactile.
+              </div>
+            </div>
+          </div>
+          <div class="mt-3 pt-2 border-t border-slate-800 text-xs font-bold text-cyan-400">
+            💡 Simple Meaning: Cyber-HUD Arena = A game-like interactive learning environment.
+          </div>
         </div>
 
-        <div class="card-3d p-6 border-l-4 border-l-purple-400" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
-          <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
-            <span>🌐 Glowing 3D Knowledge Graph</span>
-          </h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Interactive visual map of Math & Computer Science topics. Prerequisite Chain Illumination lets you click any node to light up all prerequisite dependencies in glowing neon colors.
-          </p>
+        <!-- 2. GLOWING 3D KNOWLEDGE GRAPH -->
+        <div class="card-3d p-6 border-l-4 border-l-purple-400 flex flex-col justify-between" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="space-y-3">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+              <span>🧠 2. Glowing 3D Knowledge Graph</span>
+            </h3>
+            <p class="text-xs text-slate-300">
+              Shows how learning concepts are connected (e.g. <span class="font-mono text-purple-300 text-[11px]">Variables ➔ Loops ➔ Functions ➔ Arrays ➔ Data Structures</span>).
+            </p>
+            <div class="bg-slate-900/70 p-3 rounded-xl border border-slate-800 space-y-2 text-xs text-slate-300">
+              <div>
+                <strong class="text-purple-400">• Interactive Concept Nodes:</strong> Each Math & CS concept is a visual node on a connected map.
+              </div>
+              <div>
+                <strong class="text-purple-400">• Prerequisite Chain Illumination:</strong> Clicking a topic lights up what you must understand first:
+                <div class="font-mono text-[11px] text-center text-purple-300 bg-purple-950/40 p-1.5 rounded mt-1 border border-purple-900/50">
+                  Arrays ⬆ Loops ⬆ Variables
+                </div>
+              </div>
+              <div class="flex items-center gap-3 pt-1 text-[11px]">
+                <span>🟢 <strong class="text-emerald-400">Green:</strong> Mastered</span>
+                <span>🟡 <strong class="text-amber-400">Amber:</strong> In Progress</span>
+                <span>🔴 <strong class="text-rose-400">Red:</strong> Gap / Bottleneck</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-3 pt-2 border-t border-slate-800 text-xs font-bold text-purple-400">
+            💡 Simple Meaning: Knowledge Graph = A visual map showing what you know & what's next.
+          </div>
         </div>
 
-        <div class="card-3d p-6 border-l-4 border-l-emerald-400" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
-          <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
-            <span>👩‍🏫 Teacher Cohort Command Center (CRUD)</span>
-          </h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Complete student lifecycle management (Create, Read Table/Grid, Update ability and concept mastery sliders, Delete). 1-Click Systemic Workshop batch-heals class bottlenecks.
-          </p>
+        <!-- 3. TEACHER COHORT COMMAND CENTER -->
+        <div class="card-3d p-6 border-l-4 border-l-emerald-400 flex flex-col justify-between" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="space-y-3">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+              <span>👨‍🏫 3. Teacher Cohort Command Center</span>
+            </h3>
+            <p class="text-xs text-slate-300">
+              Allows teachers to manage students and their learning activities all from one unified dashboard.
+            </p>
+            <div class="bg-slate-900/70 p-3 rounded-xl border border-slate-800 space-y-2 text-xs text-slate-300">
+              <div>
+                <strong class="text-emerald-400">• Student Management (CRUD):</strong><br/>
+                <span class="text-[11px] text-slate-200 font-mono">
+                  [C] Create ➔ Add student &bull; [R] Read ➔ View info &bull; [U] Update ➔ Change info &bull; [D] Delete ➔ Remove
+                </span>
+              </div>
+              <div>
+                <strong class="text-emerald-400">• Search & Persona Filter Chips:</strong><br/>
+                Search students and filter by criteria (e.g. show students struggling with Java).
+              </div>
+              <div>
+                <strong class="text-emerald-400">• 1-Click Systemic Workshop:</strong><br/>
+                Apply a targeted learning activity or remediation plan to the entire class simultaneously.
+              </div>
+            </div>
+          </div>
+          <div class="mt-3 pt-2 border-t border-slate-800 text-xs font-bold text-emerald-400">
+            💡 Simple Meaning: Teacher Command Center = One dashboard to manage all student learning.
+          </div>
         </div>
 
-        <div class="card-3d p-6 border-l-4 border-l-amber-400" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
-          <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
-            <span>🔐 Telemetry Sandbox & Multi-User Accounts</span>
-          </h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Interactive Corbett-Anderson BKT equation sandbox, 32-neuron recurrent neural net propagator, and secure persona accounts (Maya, Alex, Liam, Prof. Reed) with local storage persistence.
-          </p>
+        <!-- 4. TELEMETRY SANDBOX & SECURE ACCOUNTS -->
+        <div class="card-3d p-6 border-l-4 border-l-amber-400 flex flex-col justify-between" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="space-y-3">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+              <span>🔐 4. Telemetry Sandbox & Secure Accounts</span>
+            </h3>
+            <p class="text-xs text-slate-300">
+              Focuses on student activity data, mathematical modeling, and enterprise security.
+            </p>
+            <div class="bg-slate-900/70 p-3 rounded-xl border border-slate-800 space-y-2 text-xs text-slate-300">
+              <div>
+                <strong class="text-amber-400">• Interactive Bayesian & Neural Net Math Sandbox:</strong><br/>
+                Explore mathematical and statistical knowledge tracing models interactively in real time.
+              </div>
+              <div>
+                <strong class="text-amber-400">• Multi-User Persona Logins:</strong><br/>
+                Separate user accounts and roles (<span class="text-amber-300 font-semibold">Student, Teacher, Professor, Admin</span>).
+              </div>
+              <div>
+                <strong class="text-amber-400">• State Isolation & Privacy:</strong><br/>
+                Each user possesses customized credentials, isolated access permissions, and local persistence.
+              </div>
+            </div>
+          </div>
+          <div class="mt-3 pt-2 border-t border-slate-800 text-xs font-bold text-amber-400">
+            💡 Simple Meaning: Telemetry & Security = Deep model insights with protected user accounts.
+          </div>
         </div>
       </div>
     </div>

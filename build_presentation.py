@@ -1,4 +1,4 @@
-﻿import os
+import os
 from pptx import Presentation
 from pptx.util import Inches, Pt
 from pptx.dml.color import RGBColor
@@ -267,34 +267,49 @@ for i, (stitle, slines, scolor, sicon) in enumerate(steps_data):
     x_pos = 0.8 + (i * 2.95)
     make_3d_card(s3, x_pos, 1.8, 2.8, 5.0, stitle, slines, scolor, sicon)
 
-# SLIDE 4
+# SLIDE 4: 3D MODULES & CAPABILITIES
 s4 = prs.slides.add_slide(blank_layout)
 draw_3d_background(s4)
 add_3d_header(s4, "Interactive 3D Modules", "Futuristic Platform Features You Can Touch & Use", VIOLET_GLOW)
 
-make_3d_card(s4, 0.8, 1.8, 5.7, 2.4, "Futuristic Cyber-HUD Arena", [
-    "• 3D mouse parallax tilt with dynamic oscilloscope audio waves",
-    "• Real-time XP engine, level-up bar, and streak multiplier flames",
-    "• Physics-based canvas confetti & custom synthesized sound effects"
-], CYAN_GLOW, "🕹️")
+s4_mod1_lines = [
+    "Interactive learning area where students practice with the system.",
+    "• 3D mouse parallax tilt with dynamic oscilloscope audio waves:",
+    "  Responds to mouse movement with 3D effect; dynamic audio waves.",
+    "• Real-time XP engine, level-up bar & streak multiplier flames:",
+    "  Answer questions ➔ Earn XP ➔ Level up ➔ Maintain streak 🔥",
+    "• Physics-based canvas force & synthesized sound effects.",
+    "👉 Meaning: A game-like interactive learning environment."
+]
+make_3d_card(s4, 0.8, 1.7, 5.7, 2.6, "1. Futuristic Cyber-HUD Arena", s4_mod1_lines, CYAN_GLOW, "🎮")
 
-make_3d_card(s4, 6.8, 1.8, 5.7, 2.4, "Glowing 3D Knowledge Graph", [
-    "• Interactive map of Math & Computer Science concept nodes",
-    "• Prerequisite Chain Illumination: click any topic to light up parents",
-    "• Green = Mastered, Amber = In-Progress, Red = Bottleneck gap"
-], VIOLET_GLOW, "🌐")
+s4_mod2_lines = [
+    "Shows how different learning concepts are connected.",
+    "• Example: Variables ➔ Loops ➔ Functions ➔ Arrays ➔ Data Structures.",
+    "• Prerequisite Chain Illumination: Click a topic to light up prerequisites",
+    "  (e.g., Arrays ⬆ Loops ⬆ Variables).",
+    "• Color Meanings: 🟢 Green = Mastered | 🟡 Amber = In Progress | 🔴 Red = Gap",
+    "👉 Meaning: Visual map showing what you know & what's next."
+]
+make_3d_card(s4, 6.8, 1.7, 5.7, 2.6, "2. Glowing 3D Knowledge Graph", s4_mod2_lines, VIOLET_GLOW, "🧠")
 
-make_3d_card(s4, 0.8, 4.4, 5.7, 2.4, "Teacher Cohort Command Center (CRUD)", [
-    "• Complete Student Management: Create, Read (Table/Grid), Update, Delete",
-    "• Search & persona filter chips (Fast Pacers, Blocked, At-Risk)",
-    "• 1-Click Systemic Workshop: Batch-heals class-wide syllabus roadblocks"
-], EMERALD_GLOW, "👩‍🏫")
+s4_mod3_lines = [
+    "Allows teachers to manage students and learning from one place.",
+    "• Student Management — CRUD: [C]reate ➔ Add | [R]ead ➔ View | [U]pdate ➔ Change | [D]elete ➔ Remove.",
+    "• Search & Persona Filter Chips: Filter students (e.g. struggling with Java).",
+    "• 1-Click Systemic Workshop: Apply learning plan to whole class at once.",
+    "👉 Meaning: One dashboard to manage all student learning activities."
+]
+make_3d_card(s4, 0.8, 4.45, 5.7, 2.6, "3. Teacher Cohort Command Center", s4_mod3_lines, EMERALD_GLOW, "👨‍🏫")
 
-make_3d_card(s4, 6.8, 4.4, 5.7, 2.4, "Telemetry Sandbox & Secure Accounts", [
-    "• Interactive Bayesian & Neural Net math sandbox with live equations",
-    "• Multi-user persona logins (Maya, Alex, Liam, Prof. Reed)",
-    "• Complete local browser storage isolation (no cloud privacy leaks)"
-], AMBER_GLOW, "🔐")
+s4_mod4_lines = [
+    "Focuses on student activity data, mathematical modeling, and security.",
+    "• Interactive Bayesian & Neural Net math sandbox: Explore statistical models interactively.",
+    "• Multi-User Persona Logins: Separate roles (Student, Teacher, Professor, Admin).",
+    "• Isolated student states with secure local storage persistence.",
+    "👉 Meaning: Deep telemetry insights with protected user accounts."
+]
+make_3d_card(s4, 6.8, 4.45, 5.7, 2.6, "4. Telemetry Sandbox & Secure Accounts", s4_mod4_lines, AMBER_GLOW, "🔐")
 
 # SLIDE 5
 s5 = prs.slides.add_slide(blank_layout)
@@ -342,7 +357,7 @@ make_3d_card(s6, 8.8, 1.8, 3.7, 5.0, "Future Innovations", [
     "• 🔬 Unified STEM Trees: Cross-connecting Physics, Chemistry, and Engineering knowledge graphs."
 ], VIOLET_GLOW, "🔮")
 
-# Save to dedicated updated presentation
-out_file = r"c:\Users\navee\OneDrive\Pictures\NEW\347\AxiomLearn_AI_3D_Presentation_Updated.pptx"
+# Save to dedicated master presentation
+out_file = r"c:\Users\navee\OneDrive\Pictures\NEW\347\AxiomLearn_AI_Master_Presentation.pptx"
 prs.save(out_file)
 print("SUCCESS: Saved to", out_file)
