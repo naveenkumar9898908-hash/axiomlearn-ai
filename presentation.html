@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -245,43 +245,114 @@
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/30 text-violet-400 text-xs font-bold uppercase tracking-wider">
         🚀 Simple 4-Step Architecture
       </div>
-      <h2 class="text-3xl md:text-4xl font-extrabold text-white">How AxiomLearn AI Works (In Plain English)</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white">How AxiomLearn AI Works (Step-by-Step)</h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
-        <div class="card-3d p-5 border-t-4 border-t-cyan-400" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
-          <div class="text-3xl mb-2">🎯</div>
-          <div class="text-xs font-mono text-cyan-400 font-bold">STEP 01</div>
-          <h4 class="font-bold text-white text-base my-1">You Practice</h4>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Answer questions tailored to your exact ability. Never too easy, never impossibly hard—always in your sweet spot.
-          </p>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <!-- STEP 1 -->
+        <div class="card-3d p-5 border-t-4 border-t-cyan-400 flex flex-col justify-between" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-2xl">🟦</span>
+              <span class="text-[10px] font-mono font-bold text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800/60">STEP 01</span>
+            </div>
+            <h4 class="font-bold text-white text-base">Step 1: Practice</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              The student first solves interactive questions.
+            </p>
+            <p class="text-xs text-cyan-300 font-semibold leading-relaxed">
+              The AI automatically changes the difficulty of the questions.
+            </p>
+            <ul class="text-[11px] text-slate-300 space-y-1 bg-slate-900/60 p-2.5 rounded-lg border border-slate-800/80">
+              <li>&bull; If questions are too easy, AI makes them harder.</li>
+              <li>&bull; If too difficult, AI makes them easier.</li>
+              <li>&bull; <strong class="text-white">Goal:</strong> Keep student in the <em>“flow zone”</em> — challenging but not frustrating.</li>
+            </ul>
+            <div class="text-[11px] text-slate-400 bg-cyan-950/30 p-2 rounded border border-cyan-900/50">
+              <span class="text-cyan-400 font-bold">💡 Example:</span> If learning Java and you easily answer basic questions, AI gives slightly harder problems.
+            </div>
+          </div>
+          <div class="mt-3 pt-2 border-t border-slate-800 text-[11px] font-bold text-cyan-400">
+            👉 Purpose: Give the student the right level of practice.
+          </div>
         </div>
 
-        <div class="card-3d p-5 border-t-4 border-t-indigo-400" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
-          <div class="text-3xl mb-2">🧠</div>
-          <div class="text-xs font-mono text-indigo-400 font-bold">STEP 02</div>
-          <h4 class="font-bold text-white text-base my-1">AI Listens</h4>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            AI tracks answers and time latency. It knows if you made a careless rush mistake (&lt;3s) or if you are truly confused (&gt;30s).
-          </p>
+        <!-- STEP 2 -->
+        <div class="card-3d p-5 border-t-4 border-t-purple-400 flex flex-col justify-between" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-2xl">🟪</span>
+              <span class="text-[10px] font-mono font-bold text-purple-400 bg-purple-950/60 px-2 py-0.5 rounded border border-purple-800/60">STEP 02</span>
+            </div>
+            <h4 class="font-bold text-white text-base">Step 2: AI Listens</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              While answering, AI observes student performance:
+            </p>
+            <ul class="text-[11px] text-slate-300 space-y-1 bg-slate-900/60 p-2.5 rounded-lg border border-slate-800/80">
+              <li>&bull; Number of correct answers</li>
+              <li>&bull; Time taken per question</li>
+              <li>&bull; Quick mistakes vs. long conceptual struggles</li>
+            </ul>
+            <div class="text-[11px] text-slate-300 bg-purple-950/30 p-2 rounded border border-purple-900/50 space-y-1">
+              <div><strong class="text-rose-400">&lt; 3s:</strong> Quick / careless mistake.</div>
+              <div><strong class="text-amber-400">&gt; 30s:</strong> Deeper difficulty with concept.</div>
+            </div>
+            <div class="text-[11px] text-slate-400">
+              <span class="text-purple-400 font-bold">💡 Example:</span> Accidentally misclicking vs spending 40s confused are treated differently.
+            </div>
+          </div>
+          <div class="mt-3 pt-2 border-t border-slate-800 text-[11px] font-bold text-purple-400">
+            👉 Purpose: Understand why the student is struggling.
+          </div>
         </div>
 
-        <div class="card-3d p-5 border-t-4 border-t-amber-400" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
-          <div class="text-3xl mb-2">🔍</div>
-          <div class="text-xs font-mono text-amber-400 font-bold">STEP 03</div>
-          <h4 class="font-bold text-white text-base my-1">Root Detective</h4>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            If you get stuck, the AI traces the family tree of concepts to pinpoint the exact missing prerequisite that tripped you up.
-          </p>
+        <!-- STEP 3 -->
+        <div class="card-3d p-5 border-t-4 border-t-amber-400 flex flex-col justify-between" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-2xl">🟨</span>
+              <span class="text-[10px] font-mono font-bold text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded border border-amber-800/60">STEP 03</span>
+            </div>
+            <h4 class="font-bold text-white text-base">Step 3: Detective</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              If stuck, AI acts like a detective, scanning the family tree of concepts:
+            </p>
+            <div class="text-[10px] font-mono text-center text-amber-300 bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+              Advanced ➔ Basic ➔ Prerequisite
+            </div>
+            <div class="text-[11px] text-slate-300 bg-amber-950/30 p-2 rounded border border-amber-900/50">
+              <strong class="text-white">Example:</strong> Arrays ➔ Loops ➔ Variables.<br/>
+              Struggling with arrays? The real issue is often loops.
+            </div>
+            <p class="text-[11px] text-slate-400 leading-relaxed">
+              Instead of repeating array questions, AI identifies the foundational topic you need first.
+            </p>
+          </div>
+          <div class="mt-3 pt-2 border-t border-slate-800 text-[11px] font-bold text-amber-400">
+            👉 Purpose: Find the root cause of the confusion.
+          </div>
         </div>
 
-        <div class="card-3d p-5 border-t-4 border-t-emerald-400" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
-          <div class="text-3xl mb-2">🚀</div>
-          <div class="text-xs font-mono text-emerald-400 font-bold">STEP 04</div>
-          <h4 class="font-bold text-white text-base my-1">The 4-Step Fix</h4>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            1. 60s Refresher &bull; 2. Root Check &bull; 3. Scaffolded Bridge &bull; 4. Victory test with confetti & sound effects!
-          </p>
+        <!-- STEP 4 -->
+        <div class="card-3d p-5 border-t-4 border-t-emerald-400 flex flex-col justify-between" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-2xl">🟩</span>
+              <span class="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/60">STEP 04</span>
+            </div>
+            <h4 class="font-bold text-white text-base">Step 4: 60s Fix</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              AI provides 4 quick learning activities to heal the gap:
+            </p>
+            <ul class="text-[11px] text-slate-300 space-y-1.5 bg-slate-900/60 p-2.5 rounded-lg border border-slate-800/80">
+              <li><strong class="text-emerald-400">1. Refresher Card:</strong> Short, friendly concept recap.</li>
+              <li><strong class="text-emerald-400">2. Root Checkup:</strong> Small probe on basic rule.</li>
+              <li><strong class="text-emerald-400">3. Bridge Problem:</strong> Gradually connects basic to advanced.</li>
+              <li><strong class="text-emerald-400">4. Victory Test:</strong> Confetti celebration with XP rewards! 🎉</li>
+            </ul>
+          </div>
+          <div class="mt-3 pt-2 border-t border-slate-800 text-[11px] font-bold text-emerald-400">
+            👉 Purpose: Quickly repair gaps & get back on track.
+          </div>
         </div>
       </div>
     </div>
