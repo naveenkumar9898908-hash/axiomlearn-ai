@@ -3,303 +3,410 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AxiomLearn AI — Easy & Simple 6-Slide Presentation</title>
+  <title>AxiomLearn AI — 3D Holographic 6-Slide Presentation</title>
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;600;800&display=swap');
+    
+    :root {
+      --neon-cyan: #00F0FF;
+      --neon-violet: #A855F7;
+      --neon-emerald: #10B981;
+      --neon-amber: #F59E0B;
+      --neon-rose: #F43F5E;
+    }
+
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background: #0B1120;
+      background: #060913;
       color: #F8FAFC;
       margin: 0;
       padding: 0;
       overflow-x: hidden;
+      perspective: 1200px;
     }
-    .slide-card {
-      background: rgba(30, 41, 59, 0.7);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(148, 163, 184, 0.15);
+
+    /* 3D Cyber Horizon Floor */
+    .cyber-grid {
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    .ambient-glow {
+      position: fixed;
+      top: -20%;
+      left: 30%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, rgba(168, 85, 247, 0.1) 45%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* 3D Card Elevation */
+    .card-3d {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(56, 189, 248, 0.25);
       border-radius: 1.25rem;
-      transition: all 0.25s ease;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 25px -5px rgba(0, 240, 255, 0.15);
+      transform-style: preserve-3d;
+      transition: transform 0.15s ease-out, border-color 0.3s, box-shadow 0.3s;
+      position: relative;
     }
-    .slide-card:hover {
-      border-color: rgba(6, 182, 212, 0.4);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.2);
+
+    .card-3d:hover {
+      border-color: rgba(0, 240, 255, 0.6);
+      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.9), 0 0 35px 2px rgba(0, 240, 255, 0.3);
     }
+
+    .pill-3d {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+      border: 1px solid rgba(0, 240, 255, 0.4);
+      box-shadow: 0 4px 12px rgba(0, 240, 255, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    }
+
     .hidden-slide {
-      display: none;
+      display: none !important;
+    }
+
+    /* Chamfered Tech Badge */
+    .chamfer-clip {
+      clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px);
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between p-4 md:p-8 select-none">
+<body class="min-h-screen flex flex-col justify-between p-4 md:p-8 relative">
 
-  <!-- HEADER -->
-  <header class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
-    <div class="flex items-center gap-3">
-      <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-extrabold text-white shadow-lg shadow-cyan-500/30">
-        AX
+  <div class="cyber-grid"></div>
+  <div class="ambient-glow"></div>
+
+  <!-- TOP HEADER & CONTROLS -->
+  <header class="relative z-10 flex items-center justify-between border-b border-slate-800/80 pb-4 mb-6">
+    <div class="flex items-center gap-4">
+      <div class="relative w-12 h-12 flex items-center justify-center">
+        <!-- Mini 3D rotating canvas icon -->
+        <canvas id="mini3dCanvas" width="48" height="48" class="absolute inset-0"></canvas>
       </div>
       <div>
-        <h1 class="text-lg font-bold text-white tracking-wide flex items-center gap-2">
-          AxiomLearn AI <span class="text-xs px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800 font-medium">Simplified 6-Slide Deck</span>
-        </h1>
-        <p class="text-xs text-slate-400">The Smart GPS for Learning &bull; TENSORA 2026 [EDU-01]</p>
+        <div class="flex items-center gap-2">
+          <h1 class="text-xl font-black text-white tracking-wide">AxiomLearn AI</h1>
+          <span class="pill-3d text-[10px] font-mono uppercase px-2.5 py-0.5 rounded-full text-cyan-400 font-bold tracking-wider">
+            3D Holographic Presentation
+          </span>
+        </div>
+        <p class="text-xs text-slate-400 font-medium">Precision Adaptive Knowledge Tracing & Prerequisite Graph Engine</p>
       </div>
     </div>
 
-    <div class="flex items-center gap-2">
-      <button onclick="prevSlide()" class="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-cyan-500/50 transition text-sm">
-        ◀ Previous
+    <!-- Navigation Controls -->
+    <div class="flex items-center gap-3">
+      <button onclick="prevSlide()" class="pill-3d px-3 py-1.5 rounded-xl text-slate-300 hover:text-cyan-300 font-semibold text-sm transition">
+        ◀ Prev
       </button>
-      <div class="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono font-bold text-cyan-400">
-        Slide <span id="currentSlideNum">1</span> / 6
+      <div class="pill-3d px-4 py-1.5 rounded-xl font-mono text-xs font-bold text-cyan-400">
+        Slide <span id="currentSlideNum">1</span> of 6
       </div>
-      <button onclick="nextSlide()" class="px-3 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-semibold transition text-sm shadow-md shadow-cyan-500/20">
+      <button onclick="nextSlide()" class="px-4 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-bold text-sm transition shadow-lg shadow-cyan-500/30">
         Next ▶
       </button>
     </div>
   </header>
 
-  <!-- MAIN SLIDES -->
-  <main class="flex-1 flex flex-col justify-center max-w-6xl mx-auto w-full">
+  <!-- MAIN SLIDES CONTAINER -->
+  <main class="relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full">
 
-    <!-- SLIDE 1: THE BIG IDEA -->
+    <!-- =======================================================================
+         SLIDE 1: 3D HERO TITLE & THE 3 ANALOGIES
+         ======================================================================= -->
     <div id="slide-1" class="slide-item space-y-6">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider">
-        💡 The Big Idea in 1 Sentence
-      </div>
-      <h2 class="text-4xl md:text-5xl font-black text-white leading-tight">
-        AxiomLearn AI
-        <span class="block text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-cyan-400 via-indigo-300 to-emerald-400 bg-clip-text text-transparent mt-2">
-          The Intelligent GPS for Your Brain
-        </span>
-      </h2>
-      <p class="text-slate-300 text-base md:text-lg max-w-3xl leading-relaxed">
-        When you get an answer wrong, standard school tests just say <span class="text-rose-400 font-bold">"INCORRECT"</span>. 
-        <strong>AxiomLearn AI</strong> finds the <span class="text-cyan-400 font-bold">exact missing building block</span> from your past and fixes it in 4 quick, friendly steps.
-      </p>
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div class="space-y-4 max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-500/40 text-cyan-300 text-xs font-bold uppercase tracking-wider">
+            ❖ TENSORA 2026 Hackathon • Problem Statement [EDU-01]
+          </div>
+          <h2 class="text-4xl md:text-5xl font-black tracking-tight text-white leading-tight">
+            AxiomLearn AI
+            <span class="block text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-cyan-400 via-indigo-300 to-emerald-400 bg-clip-text text-transparent mt-2">
+              The Intelligent 3D GPS for Your Brain
+            </span>
+          </h2>
+          <p class="text-slate-300 text-base md:text-lg leading-relaxed">
+            Standard tests just tell you that you are <span class="text-rose-400 font-bold">"WRONG"</span>.  
+            <strong>AxiomLearn AI</strong> pinpoints the <span class="text-cyan-400 font-bold">exact missing building block</span> from your past and repairs it in 4 fun, quick steps.
+          </p>
+        </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-        <div class="slide-card p-6 border-t-4 border-t-cyan-400">
-          <div class="text-2xl mb-2">🩺</div>
-          <h3 class="text-lg font-bold text-white mb-2">Like an MRI Scanner</h3>
+        <!-- Interactive 3D Hologram Centerpiece Widget -->
+        <div class="relative w-64 h-64 flex items-center justify-center">
+          <canvas id="hero3dCanvas" width="256" height="256" class="rounded-3xl border border-cyan-500/30 bg-slate-900/60 shadow-2xl shadow-cyan-500/20"></canvas>
+          <div class="absolute bottom-2 text-[10px] font-mono text-cyan-400/80 uppercase tracking-wider bg-slate-950/80 px-2.5 py-0.5 rounded-full border border-cyan-500/30">
+            3D Knowledge Core
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Analogies Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+        <div class="card-3d p-6 border-t-4 border-t-cyan-400" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="text-3xl mb-2">🩺</div>
+          <h3 class="text-lg font-bold text-white mb-2">1. The 3D MRI Scanner</h3>
           <p class="text-xs text-slate-300 leading-relaxed">
-            Tests are like thermometers: they tell you that you have a fever (Score: 40%), but can't say why. AxiomLearn scans your thought process to find the exact germ causing confusion.
+            Tests are thermometers: they say you have a fever (Score: 40%), but cannot explain why. AxiomLearn performs a 3D cognitive scan to find the exact germ causing confusion.
           </p>
         </div>
-        <div class="slide-card p-6 border-t-4 border-t-indigo-400">
-          <div class="text-2xl mb-2">🗺️</div>
-          <h3 class="text-lg font-bold text-white mb-2">Like Google Maps</h3>
+
+        <div class="card-3d p-6 border-t-4 border-t-purple-400" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="text-3xl mb-2">🗺️</div>
+          <h3 class="text-lg font-bold text-white mb-2">2. The Learning GPS</h3>
           <p class="text-xs text-slate-300 leading-relaxed">
-            When you miss an exit, Google Maps doesn't shout or give up. It simply recalculates the fastest, easiest detour to get you back on the right road.
+            When you miss an exit in a regular class, the teacher drives on without you. AxiomLearn says <em>"Recalculating..."</em> and maps the easiest detour back to the highway.
           </p>
         </div>
-        <div class="slide-card p-6 border-t-4 border-t-emerald-400">
-          <div class="text-2xl mb-2">🎮</div>
-          <h3 class="text-lg font-bold text-white mb-2">Like a Video Game</h3>
+
+        <div class="card-3d p-6 border-t-4 border-t-emerald-400" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="text-3xl mb-2">🎮</div>
+          <h3 class="text-lg font-bold text-white mb-2">3. Video Game Dopamine</h3>
           <p class="text-xs text-slate-300 leading-relaxed">
-            Earn XP points, unlock secret badges, build daily streaks, and level up as you master math and coding topics.
+            Earn XP points, unlock 7 secret achievement badges, build hot streaks (🔥), and watch pure canvas confetti explode when you conquer a difficult concept.
           </p>
         </div>
       </div>
     </div>
 
-    <!-- SLIDE 2: THE REAL PROBLEM -->
+    <!-- =======================================================================
+         SLIDE 2: THE PROBLEM (WHY SCHOOL FEELS BROKEN)
+         ======================================================================= -->
     <div id="slide-2" class="slide-item hidden-slide space-y-6">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider">
-        ⚠️ Why School Homework Feels Painful
+        ⚠️ Problem Statement • Why Students Fail
       </div>
-      <h2 class="text-3xl md:text-4xl font-extrabold text-white">Why Do Students Really Struggle?</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white">The "Tower of Blocks" Disaster in Modern Classrooms</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="slide-card p-6 border-t-4 border-t-rose-500 space-y-4">
-          <h3 class="text-lg font-bold text-rose-400">❌ The 3 Flaws of Normal Classrooms</h3>
-          <ul class="space-y-3 text-xs text-slate-300 leading-relaxed">
-            <li>
-              <strong class="text-white">1. One-Speed Fits Nobody:</strong> A teacher with 30 students must teach at one speed. Fast kids get bored, while struggling kids get left behind.
+        <!-- Problem Card -->
+        <div class="card-3d p-6 border-t-4 border-t-rose-500 space-y-4" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">❌</span>
+            <h3 class="text-xl font-bold text-rose-400">The 3 Broken Realities of School</h3>
+          </div>
+          <ul class="space-y-4 text-xs text-slate-300 leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="text-rose-400 font-bold text-base">01</span>
+              <div><strong class="text-white text-sm">The "One-Speed Fits Nobody" Trap:</strong> A teacher with 30 students must teach at one rigid speed. Fast students get bored; struggling learners get left behind.</div>
             </li>
-            <li>
-              <strong class="text-white">2. The "Tower of Blocks" Problem:</strong> Learning is like stacking blocks. If block #3 (basic algebra) is missing, block #10 (calculus) will always collapse!
+            <li class="flex items-start gap-3">
+              <span class="text-rose-400 font-bold text-base">02</span>
+              <div><strong class="text-white text-sm">The Collapsing Tower Effect:</strong> Learning math or code is like building a 10-story tower. If Block #3 (algebra) is missing, Floor #10 (calculus) will collapse every time!</div>
             </li>
-            <li>
-              <strong class="text-white">3. Report Cards Come Too Late:</strong> Finding out you failed at the end of the semester is useless. By then, the damage is already done.
+            <li class="flex items-start gap-3">
+              <span class="text-rose-400 font-bold text-base">03</span>
+              <div><strong class="text-white text-sm">Report Cards Tell You Weeks Late:</strong> Finding out you failed at the end of the term is useless. By then, confidence is crushed.</div>
             </li>
           </ul>
         </div>
 
-        <div class="slide-card p-6 border-t-4 border-t-cyan-500 space-y-4">
-          <h3 class="text-lg font-bold text-cyan-400">✨ How AxiomLearn AI Fixes It</h3>
-          <ul class="space-y-3 text-xs text-slate-300 leading-relaxed">
-            <li>
-              <strong class="text-white">1. Your Own Pace:</strong> Fast learners zoom ahead; students who need extra time get patient, friendly guidance.
+        <!-- Solution Card -->
+        <div class="card-3d p-6 border-t-4 border-t-cyan-400 space-y-4" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">✨</span>
+            <h3 class="text-xl font-bold text-cyan-400">The AxiomLearn AI Breakthrough</h3>
+          </div>
+          <ul class="space-y-4 text-xs text-slate-300 leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="text-cyan-400 font-bold text-base">01</span>
+              <div><strong class="text-white text-sm">Personalized 1-on-1 Pacing:</strong> Fast learners zoom ahead; students who need extra time get patient, step-by-step guidance.</div>
             </li>
-            <li>
-              <strong class="text-white">2. Finds the Missing Brick:</strong> Our AI checks your foundation to find the tiny gap you forgot from 2 years ago.
+            <li class="flex items-start gap-3">
+              <span class="text-cyan-400 font-bold text-base">02</span>
+              <div><strong class="text-white text-sm">3D Prerequisite Detective:</strong> Our AI looks backward down your concept graph to isolate the exact foundation brick that came loose.</div>
             </li>
-            <li>
-              <strong class="text-white">3. Instant 60-Second Fix:</strong> Bridges the gap right when it happens, so you never fall behind or feel confused.
+            <li class="flex items-start gap-3">
+              <span class="text-cyan-400 font-bold text-base">03</span>
+              <div><strong class="text-white text-sm">Instant 60-Second Fix:</strong> Bridges the gap immediately, so you never fall behind or feel confused again.</div>
             </li>
           </ul>
         </div>
       </div>
     </div>
 
-    <!-- SLIDE 3: HOW IT WORKS IN 4 EASY STEPS -->
+    <!-- =======================================================================
+         SLIDE 3: HOW IT WORKS IN 4 STEPS
+         ======================================================================= -->
     <div id="slide-3" class="slide-item hidden-slide space-y-6">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/30 text-violet-400 text-xs font-bold uppercase tracking-wider">
-        🚀 Simple 4-Step Process
+        🚀 Simple 4-Step Architecture
       </div>
       <h2 class="text-3xl md:text-4xl font-extrabold text-white">How AxiomLearn AI Works (In Plain English)</h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div class="slide-card p-5 border-t-4 border-t-cyan-400">
-          <div class="text-2xl mb-1">🎯</div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
+        <div class="card-3d p-5 border-t-4 border-t-cyan-400" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="text-3xl mb-2">🎯</div>
           <div class="text-xs font-mono text-cyan-400 font-bold">STEP 01</div>
-          <h4 class="font-bold text-white text-sm my-1">You Practice</h4>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Answer questions matched to your exact ability. Never too easy, never impossibly hard—always in your sweet spot.
+          <h4 class="font-bold text-white text-base my-1">You Practice</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Answer questions tailored to your exact ability. Never too easy, never impossibly hard—always in your sweet spot.
           </p>
         </div>
 
-        <div class="slide-card p-5 border-t-4 border-t-indigo-400">
-          <div class="text-2xl mb-1">🧠</div>
+        <div class="card-3d p-5 border-t-4 border-t-indigo-400" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="text-3xl mb-2">🧠</div>
           <div class="text-xs font-mono text-indigo-400 font-bold">STEP 02</div>
-          <h4 class="font-bold text-white text-sm my-1">AI Listens</h4>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            The AI watches your answers and response speed. It knows if you made a quick careless slip or if you're truly stuck.
+          <h4 class="font-bold text-white text-base my-1">AI Listens</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            AI tracks answers and time latency. It knows if you made a careless rush mistake (&lt;3s) or if you are truly confused (&gt;30s).
           </p>
         </div>
 
-        <div class="slide-card p-5 border-t-4 border-t-amber-400">
-          <div class="text-2xl mb-1">🔍</div>
+        <div class="card-3d p-5 border-t-4 border-t-amber-400" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="text-3xl mb-2">🔍</div>
           <div class="text-xs font-mono text-amber-400 font-bold">STEP 03</div>
-          <h4 class="font-bold text-white text-sm my-1">Root Detective</h4>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            If you get stuck, the AI looks down the tree of concepts to find the exact missing prerequisite that tripped you up.
+          <h4 class="font-bold text-white text-base my-1">Root Detective</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            If you get stuck, the AI traces the family tree of concepts to pinpoint the exact missing prerequisite that tripped you up.
           </p>
         </div>
 
-        <div class="slide-card p-5 border-t-4 border-t-emerald-400">
-          <div class="text-2xl mb-1">🎉</div>
+        <div class="card-3d p-5 border-t-4 border-t-emerald-400" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="text-3xl mb-2">🚀</div>
           <div class="text-xs font-mono text-emerald-400 font-bold">STEP 04</div>
-          <h4 class="font-bold text-white text-sm my-1">The 4-Step Fix</h4>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            1. 60s Refresher &bull; 2. Quick Check &bull; 3. Bridge Practice &bull; 4. Victory test with confetti & sound effects!
+          <h4 class="font-bold text-white text-base my-1">The 4-Step Fix</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            1. 60s Refresher &bull; 2. Root Check &bull; 3. Scaffolded Bridge &bull; 4. Victory test with confetti & sound effects!
           </p>
         </div>
       </div>
     </div>
 
-    <!-- SLIDE 4: FEATURES -->
+    <!-- =======================================================================
+         SLIDE 4: 3D MODULES & INTERACTIVE FEATURES
+         ======================================================================= -->
     <div id="slide-4" class="slide-item hidden-slide space-y-6">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider">
-        🎮 Fun Features You Can See & Touch
+        🕹️ 3D Modules & Capabilities
       </div>
-      <h2 class="text-3xl md:text-4xl font-extrabold text-white">What Makes AxiomLearn AI Special?</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white">Interactive Modules You Can Touch & Use</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="slide-card p-5 border-l-4 border-l-cyan-400">
-          <h3 class="text-base font-bold text-white mb-1 flex items-center gap-2">
-            <span>🎮 Futuristic Practice Arena</span>
+        <div class="card-3d p-6 border-l-4 border-l-cyan-400" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+            <span>🕹️ Futuristic Cyber-HUD Arena</span>
           </h3>
           <p class="text-xs text-slate-300 leading-relaxed">
-            Sci-Fi 3D centerpiece, confetti explosions when you win, sound effects, XP points, streaks (🔥), and 7 unlockable badges.
+            Sci-Fi 3D centerpiece with mouse parallax tilt, dynamic oscilloscope audio waveforms, real-time XP engine, level-up bar, streak multiplier flames, and physics-based confetti explosions.
           </p>
         </div>
 
-        <div class="slide-card p-5 border-l-4 border-l-violet-400">
-          <h3 class="text-base font-bold text-white mb-1 flex items-center gap-2">
-            <span>🌳 Glowing Knowledge Tree</span>
+        <div class="card-3d p-6 border-l-4 border-l-purple-400" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+            <span>🌐 Glowing 3D Knowledge Graph</span>
           </h3>
           <p class="text-xs text-slate-300 leading-relaxed">
-            A beautiful visual map of Math & Coding topics. Click any topic to see what you need to learn first and what unlocks next.
+            Interactive visual map of Math & Computer Science topics. Prerequisite Chain Illumination lets you click any node to light up all prerequisite dependencies in glowing neon colors.
           </p>
         </div>
 
-        <div class="slide-card p-5 border-l-4 border-l-emerald-400">
-          <h3 class="text-base font-bold text-white mb-1 flex items-center gap-2">
-            <span>👩‍🏫 Teacher Super-Dashboard</span>
+        <div class="card-3d p-6 border-l-4 border-l-emerald-400" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+            <span>👩‍🏫 Teacher Cohort Command Center (CRUD)</span>
           </h3>
           <p class="text-xs text-slate-300 leading-relaxed">
-            Teachers can see every student's real-time progress card. 1-Click "Class Workshop" button fixes the biggest class roadblock all at once.
+            Complete student lifecycle management (Create, Read Table/Grid, Update ability and concept mastery sliders, Delete). 1-Click Systemic Workshop batch-heals class bottlenecks.
           </p>
         </div>
 
-        <div class="slide-card p-5 border-l-4 border-l-amber-400">
-          <h3 class="text-base font-bold text-white mb-1 flex items-center gap-2">
-            <span>🔐 Personal Accounts for Everyone</span>
+        <div class="card-3d p-6 border-l-4 border-l-amber-400" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+            <span>🔐 Telemetry Sandbox & Multi-User Accounts</span>
           </h3>
           <p class="text-xs text-slate-300 leading-relaxed">
-            Unique logins for students and teachers. All your XP, badges, and progress are saved automatically on your machine.
+            Interactive Corbett-Anderson BKT equation sandbox, 32-neuron recurrent neural net propagator, and secure persona accounts (Maya, Alex, Liam, Prof. Reed) with local storage persistence.
           </p>
         </div>
       </div>
     </div>
 
-    <!-- SLIDE 5: WHY EVERYONE WINS -->
+    <!-- =======================================================================
+         SLIDE 5: WHY EVERYONE WINS
+         ======================================================================= -->
     <div id="slide-5" class="slide-item hidden-slide space-y-6">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
-        🏆 Real Benefits
+        🏆 Tangible Benefits & Impact
       </div>
-      <h2 class="text-3xl md:text-4xl font-extrabold text-white">How Everyone Wins</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white">How Everyone Wins with AxiomLearn AI</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="slide-card p-6 border-t-4 border-t-cyan-400 space-y-3">
-          <h3 class="text-base font-bold text-cyan-400">🧑‍🎓 For Students</h3>
+        <div class="card-3d p-6 border-t-4 border-t-cyan-400 space-y-3" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="text-3xl">🧑‍🎓</div>
+          <h3 class="text-lg font-bold text-cyan-400">For Students</h3>
           <ul class="space-y-2 text-xs text-slate-300 leading-relaxed">
-            <li>&bull; <strong class="text-white">No More Tears:</strong> Never feel stupid or stuck on impossible homework.</li>
-            <li>&bull; <strong class="text-white">Learn in Half the Time:</strong> Skip what you already know and focus only on what you need.</li>
-            <li>&bull; <strong class="text-white">Actually Fun:</strong> Feels like playing a game, not doing dry worksheets.</li>
+            <li>&bull; <strong class="text-white">Zero Frustration:</strong> Never feel stuck or hopeless on confusing homework.</li>
+            <li>&bull; <strong class="text-white">Learn in Half the Time:</strong> Skip what you know; focus only on what you need.</li>
+            <li>&bull; <strong class="text-white">Dopamine Gamification:</strong> Turns dry worksheets into an addictive sci-fi adventure.</li>
           </ul>
         </div>
 
-        <div class="slide-card p-6 border-t-4 border-t-emerald-400 space-y-3">
-          <h3 class="text-base font-bold text-emerald-400">👩‍🏫 For Teachers</h3>
+        <div class="card-3d p-6 border-t-4 border-t-emerald-400 space-y-3" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="text-3xl">👩‍🏫</div>
+          <h3 class="text-lg font-bold text-emerald-400">For Teachers</h3>
           <ul class="space-y-2 text-xs text-slate-300 leading-relaxed">
-            <li>&bull; <strong class="text-white">Saves 10+ Hours/Week:</strong> No more manual grading of repetitive quizzes.</li>
-            <li>&bull; <strong class="text-white">Exact Diagnosis:</strong> Know exactly why half the class failed a quiz.</li>
-            <li>&bull; <strong class="text-white">1-Click Fixes:</strong> Run an instant mini-workshop on the exact problem topic.</li>
+            <li>&bull; <strong class="text-white">Saves 10+ Hours/Week:</strong> Eliminates manual grading of repetitive quizzes.</li>
+            <li>&bull; <strong class="text-white">Exact Diagnostic Truth:</strong> Know exactly why half the class failed a quiz.</li>
+            <li>&bull; <strong class="text-white">1-Click Workshops:</strong> Heal systemic bottlenecks across the entire class simultaneously.</li>
           </ul>
         </div>
 
-        <div class="slide-card p-6 border-t-4 border-t-violet-400 space-y-3">
-          <h3 class="text-base font-bold text-violet-400">🏫 For Schools & Parents</h3>
+        <div class="card-3d p-6 border-t-4 border-t-violet-400 space-y-3" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="text-3xl">🏫</div>
+          <h3 class="text-lg font-bold text-violet-400">For Schools & Parents</h3>
           <ul class="space-y-2 text-xs text-slate-300 leading-relaxed">
-            <li>&bull; <strong class="text-white">Higher Grades:</strong> Every child gets a private 1-on-1 tutor for free.</li>
-            <li>&bull; <strong class="text-white">Early Warning:</strong> Catch learning gaps in week 1, not during final exams.</li>
-            <li>&bull; <strong class="text-white">Works Everywhere:</strong> Runs fast on any basic school computer or Chromebook.</li>
+            <li>&bull; <strong class="text-white">Higher Exam Grades:</strong> Delivers 1-on-1 private tutoring quality for free.</li>
+            <li>&bull; <strong class="text-white">Early At-Risk Flags:</strong> Catch learning gaps in week 1, not during final exams.</li>
+            <li>&bull; <strong class="text-white">Zero Infrastructure Cost:</strong> Runs on any basic Chromebook or school laptop.</li>
           </ul>
         </div>
       </div>
     </div>
 
-    <!-- SLIDE 6: SUMMARY & WHAT'S NEXT -->
+    <!-- =======================================================================
+         SLIDE 6: READY TODAY & FUTURE ROADMAP
+         ======================================================================= -->
     <div id="slide-6" class="slide-item hidden-slide space-y-6">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/30 text-violet-400 text-xs font-bold uppercase tracking-wider">
         🌟 Summary & Future Vision
       </div>
-      <h2 class="text-3xl md:text-4xl font-extrabold text-white">Where We Stand & What's Next</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white">100% Ready Today & What's Coming Next</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="slide-card p-6 border-t-4 border-t-cyan-400 space-y-3">
-          <h3 class="text-base font-bold text-cyan-400">✅ 100% Ready Today</h3>
+        <div class="card-3d p-6 border-t-4 border-t-cyan-400 space-y-3" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="text-3xl">✅</div>
+          <h3 class="text-lg font-bold text-cyan-400">100% Ready Right Now</h3>
           <p class="text-xs text-slate-300 leading-relaxed">
-            Fully built, 0 errors, 5/5 engine tests passing, live development server, and uploaded to GitHub.
+            Fully built web application live on http://localhost:5173, verified with 5/5 engine tests, 0 errors, and uploaded to GitHub.
           </p>
         </div>
 
-        <div class="slide-card p-6 border-t-4 border-t-emerald-400 space-y-3">
-          <h3 class="text-base font-bold text-emerald-400">💡 The Big Takeaway</h3>
+        <div class="card-3d p-6 border-t-4 border-t-emerald-400 space-y-3" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="text-3xl">💡</div>
+          <h3 class="text-lg font-bold text-emerald-400">The Big Takeaway</h3>
           <p class="text-xs text-slate-300 leading-relaxed">
-            Uniform pacing is dead. Gaps are completely solvable. AxiomLearn AI gives every child their own patient, encouraging guide.
+            Uniform pacing is dead. Gaps are 100% fixable. AxiomLearn AI gives every child their own patient, encouraging guide.
           </p>
         </div>
 
-        <div class="slide-card p-6 border-t-4 border-t-violet-400 space-y-3">
-          <h3 class="text-base font-bold text-violet-400">🔮 Coming Very Soon</h3>
+        <div class="card-3d p-6 border-t-4 border-t-violet-400 space-y-3" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+          <div class="text-3xl">🔮</div>
+          <h3 class="text-lg font-bold text-violet-400">Future Innovations</h3>
           <p class="text-xs text-slate-300 leading-relaxed">
-            🎙️ Talking AI Voice Tutor that gives verbal hints out loud + 📲 1-click Google Classroom sync + 🔬 Science & Physics trees.
+            🎙️ Spoken AI Voice Tutor that talks you through hints + 📲 Google Classroom LTI sync + 🔬 Physics & Science knowledge trees.
           </p>
         </div>
       </div>
@@ -307,16 +414,19 @@
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="flex items-center justify-between border-t border-slate-800 pt-4 mt-6 text-xs text-slate-500">
-    <div>
+  <!-- BOTTOM FOOTER -->
+  <footer class="relative z-10 flex items-center justify-between border-t border-slate-800/80 pt-4 mt-6 text-xs text-slate-500">
+    <div class="flex items-center gap-3">
       <span>Use <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">◀</kbd> <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">▶</kbd> or <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">Space</kbd> to change slides</span>
+      <span>•</span>
+      <span class="text-cyan-400 font-semibold">3D Tilt Effects Active</span>
     </div>
     <div class="text-slate-400 font-mono">
       AxiomLearn AI &bull; TENSORA 2026 [EDU-01]
     </div>
   </footer>
 
+  <!-- 3D SCRIPT FOR ROTATING HOLOGRAM & CARD PARALLAX -->
   <script>
     let currentSlide = 1;
     const totalSlides = 6;
@@ -356,6 +466,148 @@
         prevSlide();
       }
     });
+
+    // 3D Tilt Effect on mousemove
+    function tiltCard(e, card) {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -12;
+      const rotateY = ((x - centerX) / centerX) * 12;
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+    }
+
+    function resetCard(card) {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+    }
+
+    // 3D Canvas Wireframe Rotating Hologram
+    function setup3DHologram() {
+      const canvas = document.getElementById('hero3dCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let angle = 0;
+
+      // 3D Icosahedron Vertices
+      const phi = (1 + Math.sqrt(5)) / 2;
+      const vertices = [
+        [-1, phi, 0], [1, phi, 0], [-1, -phi, 0], [1, -phi, 0],
+        [0, -1, phi], [0, 1, phi], [0, -1, -phi], [0, 1, -phi],
+        [phi, 0, -1], [phi, 0, 1], [-phi, 0, -1], [-phi, 0, 1]
+      ];
+
+      function render() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const cx = canvas.width / 2;
+        const cy = canvas.height / 2;
+        const scale = 55;
+
+        angle += 0.015;
+
+        // Draw outer orbital rings
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.strokeStyle = 'rgba(0, 240, 255, 0.25)';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, 85, 30, angle * 0.8, 0, Math.PI * 2);
+        ctx.stroke();
+
+        ctx.strokeStyle = 'rgba(168, 85, 247, 0.25)';
+        ctx.beginPath();
+        ctx.ellipse(0, 0, 75, 25, -angle * 1.2, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.restore();
+
+        // Project 3D nodes
+        const projected = vertices.map(([x, y, z]) => {
+          // Rotate around Y and X
+          const radY = angle;
+          const radX = angle * 0.7;
+
+          const x1 = x * Math.cos(radY) + z * Math.sin(radY);
+          const z1 = -x * Math.sin(radY) + z * Math.cos(radY);
+
+          const y2 = y * Math.cos(radX) - z1 * Math.sin(radX);
+          const z2 = y * Math.sin(radX) + z1 * Math.cos(radX);
+
+          const fov = 3.5;
+          const pScale = fov / (fov + z2);
+
+          return {
+            x: cx + x1 * scale * pScale,
+            y: cy + y2 * scale * pScale,
+            z: z2
+          };
+        });
+
+        // Draw connecting wireframe lines
+        ctx.strokeStyle = 'rgba(0, 240, 255, 0.4)';
+        ctx.lineWidth = 1.2;
+        for (let i = 0; i < projected.length; i++) {
+          for (let j = i + 1; j < projected.length; j++) {
+            const dist = Math.hypot(vertices[i][0] - vertices[j][0], vertices[i][1] - vertices[j][1], vertices[i][2] - vertices[j][2]);
+            if (dist < 2.1) {
+              ctx.beginPath();
+              ctx.moveTo(projected[i].x, projected[i].y);
+              ctx.lineTo(projected[j].x, projected[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+
+        // Draw glowing nodes
+        projected.forEach(p => {
+          ctx.fillStyle = '#00F0FF';
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.strokeStyle = 'rgba(0, 240, 255, 0.3)';
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 6, 0, Math.PI * 2);
+          ctx.stroke();
+        });
+
+        requestAnimationFrame(render);
+      }
+      render();
+    }
+
+    // Mini 3D Logo
+    function setupMiniLogo() {
+      const canvas = document.getElementById('mini3dCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let rot = 0;
+
+      function render() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const cx = 24, cy = 24;
+        rot += 0.03;
+
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.rotate(rot);
+
+        ctx.strokeStyle = '#00F0FF';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(-12, -12, 24, 24);
+
+        ctx.strokeStyle = '#A855F7';
+        ctx.rotate(Math.PI / 4);
+        ctx.strokeRect(-10, -10, 20, 20);
+
+        ctx.restore();
+        requestAnimationFrame(render);
+      }
+      render();
+    }
+
+    setup3DHologram();
+    setupMiniLogo();
   </script>
 </body>
 </html>
